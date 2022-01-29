@@ -35,10 +35,10 @@ func _process(_delta):
 
 # This method verifies the ToggleAnimal has a valid configuration.
 func _get_configuration_warning():
-	#check for right heirarchy
-	_controller_node = get_node_or_null(controller) if controller else get_parent()
-	if !_controller_node:
-		return "Unable to find Controller"
+	# Check the controller node
+	var test_controller_node = get_node_or_null(controller) if controller else get_parent()
+	if !test_controller_node or !test_controller_node is ARVRController:
+		return "Unable to find ARVR Controller node"
 
-	# Call base class
-	return ._get_configuration_warning()
+	# Passed basic validation
+	return ""

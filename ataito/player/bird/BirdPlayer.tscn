@@ -5,7 +5,7 @@
 [ext_resource path="res://addons/godot-xr-tools/functions/Function_Direct_movement.tscn" type="PackedScene" id=3]
 [ext_resource path="res://addons/godot-xr-tools/functions/Function_Jump_movement.tscn" type="PackedScene" id=4]
 [ext_resource path="res://addons/godot-xr-tools/functions/Function_Glide_movement.tscn" type="PackedScene" id=5]
-[ext_resource path="res://ataito/player/ToggleAnimal.gd" type="Script" id=6]
+[ext_resource path="res://ataito/player/Function_ToggleAnimal.gd" type="Script" id=6]
 [ext_resource path="res://ataito/player/AnimalController.gd" type="Script" id=7]
 
 [node name="BirdPlayer" instance=ExtResource( 1 )]
@@ -25,7 +25,7 @@ jump_button_id = 7
 
 [node name="Function_Toggle_Animal" type="Node" parent="LeftHandController" index="2"]
 script = ExtResource( 6 )
-controller = NodePath("..")
+controller = null
 
 [node name="Function_Direct_movement" parent="RightHandController" index="0" instance=ExtResource( 3 )]
 smooth_rotation = true

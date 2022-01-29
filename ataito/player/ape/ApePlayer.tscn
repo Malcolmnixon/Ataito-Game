@@ -8,7 +8,7 @@
 [ext_resource path="res://addons/godot-xr-tools/functions/Function_Direct_movement.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ataito/player/ape/RightHandApe.tscn" type="PackedScene" id=7]
 [ext_resource path="res://addons/godot-xr-tools/functions/Function_Pickup.tscn" type="PackedScene" id=8]
-[ext_resource path="res://ataito/player/ToggleAnimal.gd" type="Script" id=9]
+[ext_resource path="res://ataito/player/Function_ToggleAnimal.gd" type="Script" id=9]
 [ext_resource path="res://ataito/player/AnimalController.gd" type="Script" id=10]
 
 [node name="ApePlayer" instance=ExtResource( 1 )]
