@@ -9,6 +9,56 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "MovementProvider",
+"class": "Function_ClimbMovement",
+"language": "GDScript",
+"path": "res://addons/godot-xr-tools/functions/Function_Climb_movement.gd"
+}, {
+"base": "MovementProvider",
+"class": "Function_DirectMovement",
+"language": "GDScript",
+"path": "res://addons/godot-xr-tools/functions/Function_Direct_movement.gd"
+}, {
+"base": "MovementProvider",
+"class": "Function_Glide",
+"language": "GDScript",
+"path": "res://addons/godot-xr-tools/functions/Function_Glide_movement.gd"
+}, {
+"base": "MovementProvider",
+"class": "Function_Jump",
+"language": "GDScript",
+"path": "res://addons/godot-xr-tools/functions/Function_Jump_movement.gd"
+}, {
+"base": "Area",
+"class": "Function_Pickup",
+"language": "GDScript",
+"path": "res://addons/godot-xr-tools/functions/Function_Pickup.gd"
+}, {
+"base": "ResourceFormatLoader",
+"class": "HTerrainDataLoader",
+"language": "GDScript",
+"path": "res://addons/zylann.hterrain/hterrain_resource_loader.gd"
+}, {
+"base": "ResourceFormatSaver",
+"class": "HTerrainDataSaver",
+"language": "GDScript",
+"path": "res://addons/zylann.hterrain/hterrain_resource_saver.gd"
+}, {
+"base": "Node",
+"class": "MovementProvider",
+"language": "GDScript",
+"path": "res://addons/godot-xr-tools/functions/MovementProvider.gd"
+}, {
+"base": "StaticBody",
+"class": "Object_climbable",
+"language": "GDScript",
+"path": "res://addons/godot-xr-tools/objects/Object_climbable.gd"
+}, {
+"base": "Node",
+"class": "PlayerBody",
+"language": "GDScript",
+"path": "res://addons/godot-xr-tools/assets/PlayerBody.gd"
+}, {
 "base": "Area",
 "class": "XRToolsInteractableArea",
 "language": "GDScript",
@@ -25,6 +75,16 @@ _global_script_classes=[ {
 "path": "res://addons/godot-xr-tools/objects/Object_pickable.gd"
 } ]
 _global_script_class_icons={
+"Function_ClimbMovement": "",
+"Function_DirectMovement": "",
+"Function_Glide": "",
+"Function_Jump": "",
+"Function_Pickup": "",
+"HTerrainDataLoader": "",
+"HTerrainDataSaver": "",
+"MovementProvider": "",
+"Object_climbable": "",
+"PlayerBody": "",
 "XRToolsInteractableArea": "",
 "XRToolsInteractableBody": "",
 "XRToolsPickable": ""
@@ -34,6 +94,10 @@ _global_script_class_icons={
 
 config/name="Ataito"
 config/icon="res://icon.png"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/godot-openxr/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg" )
 
 [gdnative]
 
