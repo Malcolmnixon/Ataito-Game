@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Drop Point.mp3-e5380a4d13cd4f1778b7cf8260e65b1c.mp3str"
+
+[deps]
+
+source_file="res://assets/freepd.com/Drop Point.mp3"
+dest_files=[ "res://.import/Drop Point.mp3-e5380a4d13cd4f1778b7cf8260e65b1c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

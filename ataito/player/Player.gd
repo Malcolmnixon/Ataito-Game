@@ -65,7 +65,7 @@ func set_animal(animal):
 
 	#connect signals
 	_player.connect("toggle_animal", self, "toggle_animal")
-	
+
 	# Play the animal sound
 	_player.play_animal_sound()
 

@@ -31,7 +31,7 @@ func _process(_delta):
 	var old_toggle_pressed = _toggle_pressed
 	_toggle_pressed = _controller_node.is_button_pressed(toggle_animal_button)
 
-	# On press, report signal 
+	# On press, report signal
 	if _toggle_pressed and !old_toggle_pressed:
 		emit_signal("toggle_animal")
 
