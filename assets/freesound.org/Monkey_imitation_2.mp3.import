@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Monkey_imitation_2.mp3-0958fb3188100980ec9b5fc39b50778d.mp3str"
+
+[deps]
+
+source_file="res://assets/freesound.org/Monkey_imitation_2.mp3"
+dest_files=[ "res://.import/Monkey_imitation_2.mp3-0958fb3188100980ec9b5fc39b50778d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

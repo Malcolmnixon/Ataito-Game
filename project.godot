@@ -111,7 +111,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Ataito"
-run/main_scene="res://ataito/test/MechanicsTest.tscn"
+run/main_scene="res://ataito/level/Level.tscn"
 config/icon="res://icon.png"
 
 [editor_plugins]

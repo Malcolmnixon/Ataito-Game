@@ -1,0 +1,18 @@
+[remap]
+
+importer="hterrain_packed_texture_importer"
+type="StreamTexture"
+path.s3tc="res://.import/Level_slot3_albedo_bump.packed_tex-4487204922a6470355c6db75a37065a9.s3tc.stex"
+path.etc2="res://.import/Level_slot3_albedo_bump.packed_tex-4487204922a6470355c6db75a37065a9.etc2.stex"
+
+[deps]
+
+source_file="res://ataito/level/terrain_textures/Level_slot3_albedo_bump.packed_tex"
+dest_files=[ "res://.import/Level_slot3_albedo_bump.packed_tex-4487204922a6470355c6db75a37065a9.s3tc.stex", "res://.import/Level_slot3_albedo_bump.packed_tex-4487204922a6470355c6db75a37065a9.etc2.stex" ]
+
+[params]
+
+compress/mode=2
+flags/repeat=1
+flags/filter=true
+flags/mipmaps=true

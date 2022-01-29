@@ -75,7 +75,7 @@ func physics_movement(delta: float, player_body: PlayerBody):
 	# Get the controller left ands right global positions
 	var left_position := _left_controller_node.global_transform.origin
 	var right_position := _right_controller_node.global_transform.origin
-
+	
 	# Update if the player is gliding
 	var old_is_gliding := is_gliding
 	if player_body.on_ground:
@@ -107,7 +107,7 @@ func physics_movement(delta: float, player_body: PlayerBody):
 
 	# Perform the glide
 	var glide_velocity := horizontal_velocity + vertical_velocity * Vector3.UP
-	player_body.velocity = player_body.kinematic_node.move_and_slide(glide_velocity)
+	player_body.velocity = player_body.move_and_slide(glide_velocity)
 
 	# Report exclusive motion performed (to bypass gravity)
 	return true

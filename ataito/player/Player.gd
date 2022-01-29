@@ -59,13 +59,16 @@ func set_animal(animal):
 	_player_body = _player.get_node("PlayerBody")
 
 	# Place the player
-	_player.transform = player_transform
+	add_child(_player)
+	_player.global_transform = player_transform
 	_player_body.velocity = player_velocity
 
 	#connect signals
 	_player.connect("toggle_animal", self, "toggle_animal")
+	
+	# Play the animal sound
+	_player.play_animal_sound()
 
-	add_child(_player)
 	current_animal = animal
 	_cooling_down = true
 	_set_animal_cooldown.start()

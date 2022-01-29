@@ -1,18 +1,19 @@
 tool
 extends Node
 
+## Signal fired when the toogle animal button has been pressed
+signal toggle_animal
+
 ## Optional path to the ARVR Controller
 export (NodePath) var controller = null
+
+## Button to trigger animal switching
+export (Function_DirectMovement.Buttons) var toggle_animal_button := Function_DirectMovement.Buttons.VR_BUTTON_BY
 
 # Controller node
 var _controller_node : ARVRController = null
 
-export (Function_DirectMovement.Buttons) var toggle_animal_button := Function_DirectMovement.Buttons.VR_BUTTON_BY
-var _toggle_animal_button_pressed := false
-
-var animal_parent: AnimalController = null
-
-signal toggle_animal
+var _toggle_pressed := false
 
 func _ready():
 	if Engine.editor_hint:
@@ -21,17 +22,18 @@ func _ready():
 	# Get the controller node
 	_controller_node = get_node(controller) if controller else get_parent()
 
-	#try to hook up to the parent
-	animal_parent = get_parent() if get_parent() is AnimalController else get_parent().get_parent()
-	connect("toggle_animal", animal_parent, "_toggle_animal")
-
 func _process(_delta):
-	if Engine.editor_hint or !controller:
+	# Skip if in editor, or no controller
+	if Engine.editor_hint or !_controller_node:
 		return
-	var pressed = _controller_node.is_button_pressed(toggle_animal_button)
-	if pressed and !_toggle_animal_button_pressed:
+
+	# Detect toggle-button pressed
+	var old_toggle_pressed = _toggle_pressed
+	_toggle_pressed = _controller_node.is_button_pressed(toggle_animal_button)
+
+	# On press, report signal 
+	if _toggle_pressed and !old_toggle_pressed:
 		emit_signal("toggle_animal")
-	_toggle_animal_button_pressed = pressed
 
 # This method verifies the ToggleAnimal has a valid configuration.
 func _get_configuration_warning():

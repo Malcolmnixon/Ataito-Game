@@ -1,0 +1,18 @@
+[remap]
+
+importer="hterrain_packed_texture_importer"
+type="StreamTexture"
+path.s3tc="res://.import/Level_slot0_normal_roughness.packed_tex-8b57e7a98aa335bc8b5484fb4c1ac06f.s3tc.stex"
+path.etc2="res://.import/Level_slot0_normal_roughness.packed_tex-8b57e7a98aa335bc8b5484fb4c1ac06f.etc2.stex"
+
+[deps]
+
+source_file="res://ataito/level/terrain_textures/Level_slot0_normal_roughness.packed_tex"
+dest_files=[ "res://.import/Level_slot0_normal_roughness.packed_tex-8b57e7a98aa335bc8b5484fb4c1ac06f.s3tc.stex", "res://.import/Level_slot0_normal_roughness.packed_tex-8b57e7a98aa335bc8b5484fb4c1ac06f.etc2.stex" ]
+
+[params]
+
+compress/mode=2
+flags/repeat=1
+flags/filter=true
+flags/mipmaps=true

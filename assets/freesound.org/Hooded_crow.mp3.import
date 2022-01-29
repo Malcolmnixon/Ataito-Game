@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Hooded_crow.mp3-66579cce6d4f2244376a52982c596791.mp3str"
+
+[deps]
+
+source_file="res://assets/freesound.org/Hooded_crow.mp3"
+dest_files=[ "res://.import/Hooded_crow.mp3-66579cce6d4f2244376a52982c596791.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

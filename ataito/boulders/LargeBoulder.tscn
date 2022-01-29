@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/ambientcg.com/rock_046/Rock046S_1K_Color.jpg" type="Texture" id=1]
+[ext_resource path="res://assets/ambientcg.com/rock_046/Rock046S_1K_NormalGL.jpg" type="Texture" id=2]
+
+[sub_resource type="SphereMesh" id=1]
+radius = 2.0
+height = 5.0
+radial_segments = 7
+rings = 5
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 1 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 2 )
+
+[sub_resource type="ConvexPolygonShape" id=3]
+points = PoolVector3Array( -1.94986, 0, -0.44506, -1.56393, 0, 1.24676, -1.68876, 1.25, -0.385515, -0.868045, 0, -1.80194, -1.68876, -1.25049, -0.385515, -2.38419e-07, 0, 2, -2.38419e-07, 1.25, 1.73205, -1.35436, 1.25, 1.07966, -1.35436, -1.25049, 1.07966, -2.38419e-07, -1.25049, 1.73205, -0.782156, 2.16474, 0.623398, -0.974928, 2.16474, -0.222883, -0.434023, 2.16474, -0.901322, -0.751618, 1.25, -1.56078, -0.751618, -1.25049, -1.56078, 0.867663, 0, -1.80194, -0.97531, -2.16523, -0.222883, 1.56355, 0, 1.24676, 1.35398, 1.25, 1.07966, 0.781774, 2.16474, 0.623398, -2.38419e-07, 2.16474, 0.999647, -0.782156, -2.16523, 0.623398, -2.38419e-07, -2.16523, 0.999647, 0.781774, -2.16523, 0.623398, 1.35398, -1.25049, 1.07966, -2.38419e-07, 2.5, -0.000334382, 0.43364, 2.16474, -0.901322, 0.751236, 1.25, -1.56078, 0.751236, -1.25049, -1.56078, -0.434023, -2.16523, -0.901322, 1.94986, 0, -0.44506, -2.38419e-07, -2.5, -0.000334382, 1.68837, 1.25, -0.385515, 0.974928, 2.16474, -0.222883, 0.974928, -2.16523, -0.222883, 1.68837, -1.25049, -0.385515, 0.43364, -2.16523, -0.901322 )
+
+[node name="LargeBoulder" type="StaticBody"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 3 )
