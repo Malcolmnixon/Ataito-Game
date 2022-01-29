@@ -32,6 +32,9 @@ export (float, 0.0, 1.0) var eye_forward_offset := 0.66
 ## Ground drag factor
 export var drag_factor := 0.1
 
+## Player default ground traction
+export var traction := 10.0
+
 ## Maximum slope that can be walked up
 export (float, 0.0, 85.0) var max_slope := 45.0
 
@@ -67,6 +70,9 @@ var ground_vector := Vector3.UP
 
 ## Ground slope angle - used by MovementProvider nodes
 var ground_angle := 0.0
+
+## Ground body the player is touching
+var ground_body: PhysicsBody = null
 
 ## Ground control velocity - modified by MovementProvider nodes
 var ground_control_velocity := Vector2.ZERO
@@ -146,7 +152,7 @@ func _physics_process(delta):
 	# perform any ground-control
 	if !exclusive:
 		velocity.y += gravity * delta
-		_apply_velocity_and_control()
+		_apply_velocity_and_control(delta)
 
 	# Apply the player-body movement to the ARVR origin
 	var movement := kinematic_node.global_transform.origin - position_before_movement
@@ -190,10 +196,12 @@ func _update_ground_information():
 		on_ground = false
 		ground_vector = Vector3.UP
 		ground_angle = 0.0
+		ground_body = null
 	else:
 		on_ground = true
 		ground_vector = ground_collision.normal
 		ground_angle = rad2deg(ground_collision.get_angle())
+		ground_body = ground_collision.collider as PhysicsBody
 
 		# Detect if we're sliding on a wall
 		# TODO: consider reworking this magic angle
@@ -201,7 +209,7 @@ func _update_ground_information():
 			on_ground = false
 
 # This method applies the player velocity and ground-control velocity to the physical body
-func _apply_velocity_and_control():
+func _apply_velocity_and_control(delta: float):
 	# Split the velocity into horizontal and vertical components
 	var horizontal_velocity := velocity * horizontal
 	var vertical_velocity := velocity * Vector3.UP
@@ -209,15 +217,25 @@ func _apply_velocity_and_control():
 	# If the player is on the ground then give them control
 	if on_ground:
 		# Apply the ground drag
-		horizontal_velocity *= 1.0 - drag_factor
+		horizontal_velocity *= 1.0 - drag_factor * delta
 
 		# If ground control is being supplied then update the horizontal velocity
+		var control_velocity := Vector3.ZERO
 		if abs(ground_control_velocity.x) > 0.1 or abs(ground_control_velocity.y) > 0.1:
 			var camera_transform := camera_node.global_transform
 			var dir_forward := (camera_transform.basis.z * horizontal).normalized()
 			var dir_right := (camera_transform.basis.x * horizontal).normalized()
-			horizontal_velocity = (dir_forward * -ground_control_velocity.y + dir_right * ground_control_velocity.x) * ARVRServer.world_scale
+			control_velocity = (dir_forward * -ground_control_velocity.y + dir_right * ground_control_velocity.x) * ARVRServer.world_scale
 
+		# Allow bodies to override the traction (E.G. ice)
+		var ground_traction := traction
+		if ground_body and "traction" in ground_body:
+			ground_traction = ground_body.traction
+
+		# Apply control velocity to horizontal velocity based on traction
+		var traction_factor = clamp(ground_traction * delta, 0.0, 1.0)
+		horizontal_velocity = lerp(horizontal_velocity, control_velocity, traction_factor)
+		
 		# Prevent the player from moving up steep slopes
 		if ground_angle > max_slope:
 			# Get a vector in the down-hill direction

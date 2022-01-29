@@ -6,7 +6,7 @@ extends MovementProvider
 signal wind_area_changed(active_wind_area)
 
 ## Movement provider order
-export var order := 40
+export var order := 25
 
 ## Wind force multiplier
 export var wind_multiplier := 1.0
