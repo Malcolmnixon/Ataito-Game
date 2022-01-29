@@ -1,6 +1,7 @@
 extends Spatial
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+onready var animation_tree : AnimationTree = $AnimationTree
+
 func _process(delta):
 	var controller : ARVRController = get_parent()
 	if controller:
@@ -13,9 +14,8 @@ func _process(delta):
 
 		# print("Grip: " + str(grip) + " Trigger: " + str(trigger))
 
-		if $AnimationTree:
-			$AnimationTree.set("parameters/SetGrip/seek_position", grip)
-			$AnimationTree.set("parameters/SetIndex/seek_position", trigger)
+		animation_tree.set("parameters/SetGrip/seek_position", grip)
+		animation_tree.set("parameters/SetIndex/seek_position", trigger)
 
 		# var grip_state = controller.is_button_pressed(JOY_VR_GRIP)
 		# print("Pressed: " + str(grip_state))
