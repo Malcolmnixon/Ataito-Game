@@ -9,6 +9,21 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "FirstPersonControllerVR",
+"class": "AnimalController",
+"language": "GDScript",
+"path": "res://ataito/player/AnimalController.gd"
+}, {
+"base": "Spatial",
+"class": "AtaitoPlayer",
+"language": "GDScript",
+"path": "res://ataito/player/Player.gd"
+}, {
+"base": "ARVROrigin",
+"class": "FirstPersonControllerVR",
+"language": "GDScript",
+"path": "res://addons/godot-openxr/scenes/first_person_controller_vr.gd"
+}, {
 "base": "MovementProvider",
 "class": "Function_ClimbMovement",
 "language": "GDScript",
@@ -75,6 +90,9 @@ _global_script_classes=[ {
 "path": "res://addons/godot-xr-tools/objects/Object_pickable.gd"
 } ]
 _global_script_class_icons={
+"AnimalController": "",
+"AtaitoPlayer": "",
+"FirstPersonControllerVR": "",
 "Function_ClimbMovement": "",
 "Function_DirectMovement": "",
 "Function_Glide": "",

@@ -1,4 +1,5 @@
 extends ARVROrigin
+class_name FirstPersonControllerVR
 
 signal initialised
 signal failed_initialisation
@@ -29,7 +30,8 @@ func initialise() -> bool:
 		return true
 
 	interface = ARVRServer.find_interface("OpenXR")
-	if interface and interface.initialize():
+	var initialized := true if interface.interface_is_initialized else interface.initialize()
+	if interface and initialized:
 		print("OpenXR Interface initialized")
 
 		# Find the viewport we're using to render our XR output
