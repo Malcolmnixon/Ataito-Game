@@ -50,10 +50,9 @@ canFly = false
 [node name="PlayerBody" parent="." index="4" instance=ExtResource( 2 )]
 player_radius = 0.1
 eye_forward_offset = 0.3
+traction = 5.0
 max_slope = 40.0
 push_rigid_bodies = false
-origin = null
-camera = null
 
 [node name="Function_Glide_movement" parent="." index="5" instance=ExtResource( 5 )]
 glide_forward_speed = 7.0

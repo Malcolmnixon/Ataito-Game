@@ -8,6 +8,9 @@ height = 1.4
 
 [node name="PlayerBody" type="Node"]
 script = ExtResource( 1 )
+traction = 1.0
+origin = null
+camera = null
 
 [node name="KinematicBody" type="KinematicBody" parent="." groups=["player_body"]]
 collision_layer = 524288
