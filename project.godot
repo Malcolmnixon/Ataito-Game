@@ -14,10 +14,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ataito/player/AnimalController.gd"
 }, {
-"base": "Spatial",
+"base": "CollectableTracker",
 "class": "AtaitoPlayer",
 "language": "GDScript",
 "path": "res://ataito/player/Player.gd"
+}, {
+"base": "Spatial",
+"class": "Collectable",
+"language": "GDScript",
+"path": "res://ataito/collectable/Collectable.gd"
+}, {
+"base": "Spatial",
+"class": "CollectableTracker",
+"language": "GDScript",
+"path": "res://ataito/collectable/CollectableTracker.gd"
 }, {
 "base": "ARVROrigin",
 "class": "FirstPersonControllerVR",
@@ -102,6 +112,8 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "AnimalController": "",
 "AtaitoPlayer": "",
+"Collectable": "",
+"CollectableTracker": "",
 "FirstPersonControllerVR": "",
 "Function_ClimbMovement": "",
 "Function_DirectMovement": "",

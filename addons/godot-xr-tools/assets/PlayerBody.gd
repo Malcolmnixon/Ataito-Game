@@ -10,13 +10,13 @@ extends Node
 ##     a PlayerBody. This PlayerBody is a capsule tracking the players hear
 ##     via the ARVRCamera node.
 ##
-##     The PlayerBody can detect when the player is in the air, on the ground, 
+##     The PlayerBody can detect when the player is in the air, on the ground,
 ##     or on a steep slope.
 ##
 ##     The PlayerBody works with movement providers to allow the player to move
 ##     around the environment.
 ##
-##     At the end of each physics process step the ARVROrigin is updated to 
+##     At the end of each physics process step the ARVROrigin is updated to
 ##     track any movement to the PlayerBody.
 ##
 
@@ -161,7 +161,7 @@ func _physics_process(delta):
 # Perform a move_and_slide on the kinematic node
 func move_and_slide(var velocity: Vector3) -> Vector3:
 	return kinematic_node.move_and_slide(velocity, Vector3.UP, false, 4, 0.785398, push_rigid_bodies)
-	
+
 # This method updates the body to match the player position
 func _update_body_under_camera():
 	# Calculate the player height based on the origin and camera position
@@ -235,7 +235,7 @@ func _apply_velocity_and_control(delta: float):
 		# Apply control velocity to horizontal velocity based on traction
 		var traction_factor = clamp(ground_traction * delta, 0.0, 1.0)
 		horizontal_velocity = lerp(horizontal_velocity, control_velocity, traction_factor)
-		
+
 		# Prevent the player from moving up steep slopes
 		if ground_angle > max_slope:
 			# Get a vector in the down-hill direction
