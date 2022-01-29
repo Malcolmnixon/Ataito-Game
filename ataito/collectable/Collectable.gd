@@ -18,6 +18,7 @@ export (Alignment) var type := 0 setget _update_type
 
 onready var _object : Spatial = $Body
 onready var _particles : Particles = $Body/Particles
+onready var _pickup_sound : AudioStreamPlayer = $PickupSound
 
 var _already_collected := false
 
@@ -52,3 +53,5 @@ func collect(source: XRToolsPickable):
 	visible = false
 	_already_collected = true
 	source.drop_and_free()
+	_pickup_sound.connect("finished", self, "queue_free")
+	_pickup_sound.play_sfx()
