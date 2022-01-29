@@ -10,7 +10,7 @@ export var delay_seconds := 1
 var _timer : Timer = null
 
 func _ready():
-	if $Timer:
+	if has_node("Timer"):
 		_timer = $Timer
 	else:
 		_timer = Timer.new()

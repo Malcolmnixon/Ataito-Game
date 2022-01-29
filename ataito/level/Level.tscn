@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://ataito/level/terrain/data.hterrain" type="Resource" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://assets/freepd.com/Drop Point.mp3" type="AudioStream" id=15]
 [ext_resource path="res://ataito/level/terrain_textures/Level_slot3_albedo_bump.packed_tex" type="Texture" id=16]
 [ext_resource path="res://ataito/level/terrain_textures/Level_slot2_albedo_bump.packed_tex" type="Texture" id=17]
+[ext_resource path="res://ataito/collectable/Collectable.tscn" type="PackedScene" id=18]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 8 )
@@ -115,3 +116,6 @@ autoplay = true
 
 [node name="Player" parent="." instance=ExtResource( 7 )]
 transform = Transform( 0.376548, 0, -0.926397, 0, 1, 0, 0.926397, 0, 0.376548, -207.187, 29.982, -186.476 )
+
+[node name="Collectable" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -206.108, 29.9781, -191.178 )
