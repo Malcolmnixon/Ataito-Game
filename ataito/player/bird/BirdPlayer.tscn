@@ -49,8 +49,11 @@ camera = null
 [node name="Function_Glide_movement" parent="." index="5" instance=ExtResource( 5 )]
 glide_forward_speed = 7.0
 horizontal_slew_rate = 2.0
+left_controller = null
+right_controller = null
 
 [node name="AnimalSound" type="AudioStreamPlayer" parent="." index="6"]
 stream = ExtResource( 8 )
+volume_db = 15.0
 
 [connection signal="toggle_animal" from="LeftHandController/Function_Toggle_Animal" to="." method="_toggle_animal"]
