@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://ataito/slick/Slick.gd" type="Script" id=1]
+[ext_resource path="res://assets/maujoe.basic_water_material/textures/water_normal_1.png" type="Texture" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 10, 0.5, 10 )
+
+[sub_resource type="PlaneMesh" id=2]
+size = Vector2( 20, 20 )
+subdivide_width = 4
+subdivide_depth = 4
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.584314, 1, 0.921569, 1 )
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.0
+normal_enabled = true
+normal_scale = 0.5
+normal_texture = ExtResource( 2 )
+uv1_scale = Vector3( 20, 20, 20 )
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material/0:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "UV Water"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material/0:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 1, 0, 0 ) ]
+}
+
+[node name="Water" type="StaticBody"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MeshInstance"]
+autoplay = "UV Water"
+anims/RESET = SubResource( 4 )
+"anims/UV Water" = SubResource( 5 )
