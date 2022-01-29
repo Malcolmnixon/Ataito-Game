@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/light_01.png-7be74028366de437e7b0c8f542b7c268.s3tc.stex"
-path.etc2="res://.import/light_01.png-7be74028366de437e7b0c8f542b7c268.etc2.stex"
+path.s3tc="res://.import/Gravel030_1K_NormalGL.jpg-e32895b4b07c5cf18f1312f9d804a82a.s3tc.stex"
+path.etc2="res://.import/Gravel030_1K_NormalGL.jpg-e32895b4b07c5cf18f1312f9d804a82a.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/kenney_particle_pack/light_01.png"
-dest_files=[ "res://.import/light_01.png-7be74028366de437e7b0c8f542b7c268.s3tc.stex", "res://.import/light_01.png-7be74028366de437e7b0c8f542b7c268.etc2.stex" ]
+source_file="res://assets/ambientcg.com/gravel_030/Gravel030_1K_NormalGL.jpg"
+dest_files=[ "res://.import/Gravel030_1K_NormalGL.jpg-e32895b4b07c5cf18f1312f9d804a82a.s3tc.stex", "res://.import/Gravel030_1K_NormalGL.jpg-e32895b4b07c5cf18f1312f9d804a82a.etc2.stex" ]
 
 [params]
 
@@ -25,7 +25,7 @@ flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=1
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

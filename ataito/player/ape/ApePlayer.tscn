@@ -64,7 +64,7 @@ canFly = false
 pickup_range = 0.1
 
 [node name="PlayerBody" parent="." index="4" instance=ExtResource( 2 )]
-traction = 8.0
+traction = 20.0
 push_rigid_bodies = false
 
 [node name="Function_Climb_movement" parent="." index="5" instance=ExtResource( 4 )]

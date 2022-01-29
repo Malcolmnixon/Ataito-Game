@@ -1,10 +1,10 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://ataito/level/terrain/data.hterrain" type="Resource" id=2]
 [ext_resource path="res://assets/polyhaven.com/kloppenheim_03/kloppenheim_03_2k.exr" type="Texture" id=3]
-[ext_resource path="res://ataito/level/terrain_textures/Level_slot1_normal_roughness.packed_tex" type="Texture" id=4]
-[ext_resource path="res://ataito/level/terrain_textures/Level_slot1_albedo_bump.packed_tex" type="Texture" id=5]
+[ext_resource path="res://assets/ambientcg.com/gravel_030/Gravel030_1K_Color.jpg" type="Texture" id=4]
+[ext_resource path="res://assets/ambientcg.com/gravel_030/Gravel030_1K_NormalGL.jpg" type="Texture" id=5]
 [ext_resource path="res://ataito/trees/ClimbTree.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ataito/player/Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=8]
@@ -13,16 +13,19 @@
 [ext_resource path="res://ataito/boulders/LargeBoulder.tscn" type="PackedScene" id=11]
 [ext_resource path="res://ataito/logs/MovableLog.tscn" type="PackedScene" id=12]
 [ext_resource path="res://ataito/boulders/SmallBoulder.tscn" type="PackedScene" id=13]
-[ext_resource path="res://ataito/level/terrain_textures/Level_slot2_normal_roughness.packed_tex" type="Texture" id=14]
+[ext_resource path="res://assets/ambientcg.com/ground_027/Ground027_1K_NormalGL.jpg" type="Texture" id=14]
 [ext_resource path="res://assets/freepd.com/Drop Point.mp3" type="AudioStream" id=15]
 [ext_resource path="res://ataito/level/terrain_textures/Level_slot3_albedo_bump.packed_tex" type="Texture" id=16]
-[ext_resource path="res://ataito/level/terrain_textures/Level_slot2_albedo_bump.packed_tex" type="Texture" id=17]
+[ext_resource path="res://assets/ambientcg.com/ground_027/Ground027_1K_Color.jpg" type="Texture" id=17]
 [ext_resource path="res://ataito/collectable/Collectable.tscn" type="PackedScene" id=18]
+[ext_resource path="res://ataito/slick/Water.tscn" type="PackedScene" id=19]
+[ext_resource path="res://ataito/boulders/SmallBoulderClimb.tscn" type="PackedScene" id=20]
+[ext_resource path="res://addons/godot-xr-tools/objects/Wind_area.tscn" type="PackedScene" id=21]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 8 )
 mode = 0
-textures = [ [ ExtResource( 9 ), ExtResource( 5 ), ExtResource( 17 ), ExtResource( 16 ) ], [ null, ExtResource( 4 ), ExtResource( 14 ), null ] ]
+textures = [ [ ExtResource( 9 ), ExtResource( 17 ), ExtResource( 4 ), ExtResource( 16 ) ], [ null, ExtResource( 14 ), ExtResource( 5 ), null ] ]
 
 [sub_resource type="PanoramaSky" id=2]
 panorama = ExtResource( 3 )
@@ -38,6 +41,12 @@ fog_depth_begin = 50.0
 fog_depth_end = 80.0
 fog_depth_curve = 1.23114
 dof_blur_far_distance = 40.0
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 15, 1, 7 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 14.0465, 1, 4.87628 )
 
 [node name="Level" type="Spatial"]
 
@@ -66,8 +75,35 @@ shader_params/u_colormap_opacity_per_texture = Plane( 1, 1, 1, 1 )
 [node name="Hut_6" parent="HTerrain/Canyon Objects" instance=ExtResource( 10 )]
 transform = Transform( -0.61985, 0, 0.505753, 0, 0.8, 0, -0.505753, 0, -0.61985, 52.742, 30.0306, 69.1498 )
 
+[node name="Water" parent="HTerrain/Canyon Objects" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61.4491, 25.2031, 62.7737 )
+
+[node name="Water2" parent="HTerrain/Canyon Objects" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 59.4491, 25.2031, 51.7737 )
+
 [node name="SmallBoulder" parent="HTerrain/Canyon Objects" instance=ExtResource( 13 )]
 transform = Transform( 0.628506, -0.774731, 0.0690747, 0, 0.0888073, 0.996049, -0.777805, -0.626023, 0.055816, 119.847, 24.5759, 46.2618 )
+
+[node name="SmallBoulderClimb" parent="HTerrain/Canyon Objects" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.9299, 24.8787, 70.2833 )
+
+[node name="SmallBoulderClimb2" parent="HTerrain/Canyon Objects" instance=ExtResource( 20 )]
+transform = Transform( 0.386647, 0.922228, 0, -0.922228, 0.386647, 0, 0, 0, 1, 60.498, 26.129, 70.7445 )
+
+[node name="SmallBoulderClimb3" parent="HTerrain/Canyon Objects" instance=ExtResource( 20 )]
+transform = Transform( 0.862098, -0.506741, 0, 0.506741, 0.862098, 0, 0, 0, 1, 60.178, 26.748, 70.9953 )
+
+[node name="SmallBoulderClimb4" parent="HTerrain/Canyon Objects" instance=ExtResource( 20 )]
+transform = Transform( 0.862098, -0.506741, 0, 0.506741, 0.862098, 0, 0, 0, 1, 59.7235, 27.7368, 71.3585 )
+
+[node name="SmallBoulderClimb5" parent="HTerrain/Canyon Objects" instance=ExtResource( 20 )]
+transform = Transform( 0.862098, -0.506741, 0, 0.506741, 0.862098, 0, 0, 0, 1, 59.7317, 28.8078, 71.7793 )
+
+[node name="SmallBoulderClimb6" parent="HTerrain/Canyon Objects" instance=ExtResource( 20 )]
+transform = Transform( 0.430417, -0.787054, -0.441913, 0.877372, 0.47981, 0, 0.212034, -0.387722, 0.897058, 59.4286, 29.8825, 72.0297 )
+
+[node name="SmallBoulderClimb7" parent="HTerrain/Canyon Objects" instance=ExtResource( 20 )]
+transform = Transform( 0.430417, -0.787054, -0.441913, 0.877372, 0.47981, 0, 0.212034, -0.387722, 0.897058, 59.7942, 30.7251, 72.3834 )
 
 [node name="LogJam1" type="Spatial" parent="HTerrain"]
 
@@ -106,6 +142,23 @@ transform = Transform( 1, 0, 0, 0, 0.363072, -0.931761, 0, 0.931761, 0.363072, 7
 [node name="ClimbTree" parent="HTerrain/TreeJump1" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.2776, 5, 118.987 )
 
+[node name="WaterTrap" type="Spatial" parent="HTerrain"]
+
+[node name="Water" parent="HTerrain/WaterTrap" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 59.647, 4.8, 140.266 )
+
+[node name="Water2" parent="HTerrain/WaterTrap" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.647, 4.8, 134.266 )
+
+[node name="Water3" parent="HTerrain/WaterTrap" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 93.647, 4.8, 129.266 )
+
+[node name="Water4" parent="HTerrain/WaterTrap" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 102.647, 4.8, 128.266 )
+
+[node name="ClimbTree" parent="HTerrain/WaterTrap" instance=ExtResource( 6 )]
+transform = Transform( 0.920013, 0, 0.391887, 0, 1, 0, -0.391887, 0, 0.920013, 103.546, 5.86728, 117.204 )
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
 
@@ -119,3 +172,31 @@ transform = Transform( 0.376548, 0, -0.926397, 0, 1, 0, 0.926397, 0, 0.376548, -
 
 [node name="Collectable" parent="." instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -206.108, 29.9781, -191.178 )
+
+[node name="WindArea" parent="." instance=ExtResource( 21 )]
+transform = Transform( 0.803504, 0, 0.5953, 0, 1, 0, -0.5953, 0, 0.803504, -194.302, 5, -114.272 )
+wind_vector = Vector3( -5, 0, 0 )
+
+[node name="CollisionShape" parent="WindArea" index="0"]
+transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0 )
+shape = SubResource( 5 )
+
+[node name="WindArea2" parent="." instance=ExtResource( 21 )]
+transform = Transform( 0.9748, 0, 0.22308, 0, 1, 0, -0.22308, 0, 0.9748, -172.986, 5, -124.792 )
+wind_vector = Vector3( -5, 0, 0 )
+
+[node name="CollisionShape" parent="WindArea2" index="0"]
+transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="WindArea3" parent="." instance=ExtResource( 21 )]
+transform = Transform( 0.991921, 0, 0.126857, 0, 1, 0, -0.126857, 0, 0.991921, -157.523, 5, -126.886 )
+wind_vector = Vector3( -5, 0, 0 )
+
+[node name="CollisionShape" parent="WindArea3" index="0"]
+transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[editable path="WindArea"]
+[editable path="WindArea2"]
+[editable path="WindArea3"]
