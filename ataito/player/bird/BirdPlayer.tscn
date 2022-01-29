@@ -47,6 +47,10 @@ smooth_rotation = true
 max_speed = 2.0
 canFly = false
 
+[node name="Function_Toggle_Animal" type="Node" parent="RightHandController" index="2"]
+script = ExtResource( 6 )
+controller = null
+
 [node name="PlayerBody" parent="." index="4" instance=ExtResource( 2 )]
 player_radius = 0.1
 eye_forward_offset = 0.3

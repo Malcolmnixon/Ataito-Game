@@ -63,6 +63,10 @@ canFly = false
 [node name="Function_Pickup" parent="RightHandController" index="2" instance=ExtResource( 8 )]
 pickup_range = 0.1
 
+[node name="Function_Toggle_Animal" type="Node" parent="RightHandController" index="3"]
+script = ExtResource( 9 )
+controller = null
+
 [node name="PlayerBody" parent="." index="4" instance=ExtResource( 2 )]
 traction = 20.0
 push_rigid_bodies = false
@@ -85,3 +89,4 @@ script = ExtResource( 15 )
 [connection signal="has_picked_up" from="LeftHandController/Function_Pickup" to="LeftHandController/LeftHandApe/ClimbSound" method="_on_grab"]
 [connection signal="toggle_animal" from="LeftHandController/Function_Toggle_Animal" to="." method="_toggle_animal"]
 [connection signal="has_picked_up" from="RightHandController/Function_Pickup" to="LeftHandController/LeftHandApe/ClimbSound" method="_on_grab"]
+[connection signal="toggle_animal" from="RightHandController/Function_Toggle_Animal" to="." method="_toggle_animal"]
