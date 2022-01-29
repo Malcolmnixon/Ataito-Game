@@ -1,4 +1,4 @@
-extends Spatial
+extends CollectableTracker
 class_name AtaitoPlayer
 
 onready var _ape_player = preload("res://ataito/player/ape/ApePlayer.tscn")

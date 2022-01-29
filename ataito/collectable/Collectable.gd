@@ -16,12 +16,15 @@ enum Alignment {
 
 export (Alignment) var type := 0 setget _update_type
 
+onready var _object : Spatial = $Body
 onready var _particles : Particles = $Body/Particles
+
+var _already_collected := false
 
 signal collected(type, node)
 
 func _ready():
-	$Body.connect("picked_up", self, "collect")
+	_object.connect("picked_up", self, "collect")
 	_update_type(type)
 
 func _update_type(value):
@@ -42,6 +45,10 @@ func _update_type(value):
 			_particles.draw_pass_1 = pass_default
 			_particles.process_material = mat_default
 
-func collect(_source):
+func collect(source: XRToolsPickable):
+	if _already_collected:
+		return
 	emit_signal("collected", type, self)
 	visible = false
+	_already_collected = true
+	source.drop_and_free()
