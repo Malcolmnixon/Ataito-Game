@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/godot-xr-tools/assets/PlayerBody.tscn" type="PackedScene" id=2]
@@ -11,6 +11,11 @@
 [ext_resource path="res://ataito/player/Function_ToggleAnimal.gd" type="Script" id=9]
 [ext_resource path="res://ataito/player/AnimalController.gd" type="Script" id=10]
 [ext_resource path="res://assets/freesound.org/Monkey_imitation_2.mp3" type="AudioStream" id=11]
+[ext_resource path="res://assets/custom/grunt-hotp.ogg" type="AudioStream" id=12]
+[ext_resource path="res://assets/custom/grunt-hutt-hutt.ogg" type="AudioStream" id=13]
+[ext_resource path="res://ataito/player/ClimbSound.gd" type="Script" id=14]
+[ext_resource path="res://ataito/player/MotionSound.gd" type="Script" id=15]
+[ext_resource path="res://assets/custom/grunt-hupt.ogg" type="AudioStream" id=16]
 
 [node name="ApePlayer" instance=ExtResource( 1 )]
 script = ExtResource( 10 )
@@ -24,6 +29,10 @@ far = 200.0
 
 [node name="LeftHandApe" parent="LeftHandController" index="0" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03, -0.05, 0.15 )
+
+[node name="ClimbSound" type="AudioStreamPlayer3D" parent="LeftHandController/LeftHandApe" index="2"]
+stream = ExtResource( 12 )
+script = ExtResource( 14 )
 
 [node name="Function_Pickup" parent="LeftHandController" index="1" instance=ExtResource( 8 )]
 pickup_range = 0.1
@@ -43,6 +52,10 @@ controller = null
 
 [node name="RightHandApe" parent="RightHandController" index="0" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03, -0.05, 0.15 )
+
+[node name="ClimbSound" type="AudioStreamPlayer3D" parent="RightHandController/RightHandApe" index="2"]
+stream = ExtResource( 16 )
+script = ExtResource( 14 )
 
 [node name="Function_Direct_movement" parent="RightHandController" index="1" instance=ExtResource( 6 )]
 smooth_rotation = true
@@ -65,4 +78,11 @@ right_pickup = NodePath("../RightHandController/Function_Pickup")
 stream = ExtResource( 11 )
 volume_db = 5.0
 
+[node name="RunningSound" type="AudioStreamPlayer" parent="." index="7"]
+stream = ExtResource( 13 )
+volume_db = -5.0
+script = ExtResource( 15 )
+
+[connection signal="has_picked_up" from="LeftHandController/Function_Pickup" to="LeftHandController/LeftHandApe/ClimbSound" method="_on_grab"]
 [connection signal="toggle_animal" from="LeftHandController/Function_Toggle_Animal" to="." method="_toggle_animal"]
+[connection signal="has_picked_up" from="RightHandController/Function_Pickup" to="LeftHandController/LeftHandApe/ClimbSound" method="_on_grab"]
