@@ -188,6 +188,9 @@ transform = Transform( 0.848372, 0.134974, 0.511906, 0, -0.966952, 0.254957, 0.5
 [node name="ClimbTree" parent="HTerrain/TreeJump1" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.2776, 5, 118.987 )
 
+[node name="Collectable" parent="HTerrain/TreeJump1" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 104.044, 6.95479, 112.43 )
+
 [node name="WaterTrap" type="Spatial" parent="HTerrain"]
 
 [node name="Water" parent="HTerrain/WaterTrap" instance=ExtResource( 19 )]
@@ -204,6 +207,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 102.647, 4.8, 128.266 )
 
 [node name="ClimbTree" parent="HTerrain/WaterTrap" instance=ExtResource( 6 )]
 transform = Transform( 0.920013, 0, 0.391887, 0, 1, 0, -0.391887, 0, 0.920013, 103.546, 5.86728, 117.204 )
+
+[node name="Collectable" parent="HTerrain/WaterTrap" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 82.3926, 5.03971, 130.493 )
+type = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
