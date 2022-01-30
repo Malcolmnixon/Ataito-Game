@@ -80,3 +80,4 @@ when_grounded = false
 when_falling = true
 
 [connection signal="toggle_animal" from="LeftHandController/Function_Toggle_Animal" to="." method="_toggle_animal"]
+[connection signal="toggle_animal" from="RightHandController/Function_Toggle_Animal" to="." method="_toggle_animal"]

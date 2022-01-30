@@ -50,8 +50,9 @@ func collect(source: XRToolsPickable):
 	if _already_collected:
 		return
 	emit_signal("collected", type, self)
-	visible = false
+	#visible = false
 	_already_collected = true
-	source.drop_and_free()
-	_pickup_sound.connect("finished", self, "queue_free")
+	#source.drop_and_free()
+	_particles.emitting = false
+	#_pickup_sound.connect("finished", self, "queue_free")
 	_pickup_sound.play_sfx()

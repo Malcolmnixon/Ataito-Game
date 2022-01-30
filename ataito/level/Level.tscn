@@ -70,72 +70,117 @@ shader_params/u_globalmap_blend_start = null
 shader_params/u_globalmap_blend_distance = null
 shader_params/u_colormap_opacity_per_texture = Plane( 1, 1, 1, 1 )
 
-[node name="Canyon Objects" type="Spatial" parent="HTerrain"]
+[node name="Home" type="Spatial" parent="HTerrain"]
 
-[node name="Hut_6" parent="HTerrain/Canyon Objects" instance=ExtResource( 10 )]
+[node name="Hut_6" parent="HTerrain/Home" instance=ExtResource( 10 )]
 transform = Transform( -0.61985, 0, 0.505753, 0, 0.8, 0, -0.505753, 0, -0.61985, 52.742, 30.0306, 69.1498 )
 
-[node name="Water" parent="HTerrain/Canyon Objects" instance=ExtResource( 19 )]
+[node name="Water" parent="HTerrain/Home" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61.4491, 25.2031, 62.7737 )
 
-[node name="Water2" parent="HTerrain/Canyon Objects" instance=ExtResource( 19 )]
+[node name="Water2" parent="HTerrain/Home" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 59.4491, 25.2031, 51.7737 )
+
+[node name="SmallBoulderClimb" parent="HTerrain/Home" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.9299, 24.8787, 70.2833 )
+
+[node name="SmallBoulderClimb2" parent="HTerrain/Home" instance=ExtResource( 20 )]
+transform = Transform( 0.386647, 0.922228, 0, -0.922228, 0.386647, 0, 0, 0, 1, 60.498, 26.129, 70.7445 )
+
+[node name="SmallBoulderClimb3" parent="HTerrain/Home" instance=ExtResource( 20 )]
+transform = Transform( 0.862098, -0.506741, 0, 0.506741, 0.862098, 0, 0, 0, 1, 60.178, 26.748, 70.9953 )
+
+[node name="SmallBoulderClimb4" parent="HTerrain/Home" instance=ExtResource( 20 )]
+transform = Transform( 0.862098, -0.506741, 0, 0.506741, 0.862098, 0, 0, 0, 1, 59.7235, 27.7368, 71.3585 )
+
+[node name="SmallBoulderClimb5" parent="HTerrain/Home" instance=ExtResource( 20 )]
+transform = Transform( 0.862098, -0.506741, 0, 0.506741, 0.862098, 0, 0, 0, 1, 59.7317, 28.8078, 71.7793 )
+
+[node name="SmallBoulderClimb6" parent="HTerrain/Home" instance=ExtResource( 20 )]
+transform = Transform( 0.430417, -0.787054, -0.441913, 0.877372, 0.47981, 0, 0.212034, -0.387722, 0.897058, 59.4286, 29.8825, 72.0297 )
+
+[node name="SmallBoulderClimb7" parent="HTerrain/Home" instance=ExtResource( 20 )]
+transform = Transform( 0.430417, -0.787054, -0.441913, 0.877372, 0.47981, 0, 0.212034, -0.387722, 0.897058, 59.7942, 30.7251, 72.3834 )
+
+[node name="Collectable" parent="HTerrain/Home" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49.892, 29.9781, 64.822 )
+
+[node name="Canyon Objects" type="Spatial" parent="HTerrain"]
 
 [node name="SmallBoulder" parent="HTerrain/Canyon Objects" instance=ExtResource( 13 )]
 transform = Transform( 0.628506, -0.774731, 0.0690747, 0, 0.0888073, 0.996049, -0.777805, -0.626023, 0.055816, 119.847, 24.5759, 46.2618 )
 
-[node name="SmallBoulderClimb" parent="HTerrain/Canyon Objects" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.9299, 24.8787, 70.2833 )
+[node name="Collectable2" parent="HTerrain/Canyon Objects" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 71.3562, 26.6773, 56.0996 )
+type = 2
 
-[node name="SmallBoulderClimb2" parent="HTerrain/Canyon Objects" instance=ExtResource( 20 )]
-transform = Transform( 0.386647, 0.922228, 0, -0.922228, 0.386647, 0, 0, 0, 1, 60.498, 26.129, 70.7445 )
+[node name="Collectable3" parent="HTerrain/Canyon Objects" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100.16, 21.9313, 59.4735 )
 
-[node name="SmallBoulderClimb3" parent="HTerrain/Canyon Objects" instance=ExtResource( 20 )]
-transform = Transform( 0.862098, -0.506741, 0, 0.506741, 0.862098, 0, 0, 0, 1, 60.178, 26.748, 70.9953 )
+[node name="CliffClimb" type="Spatial" parent="HTerrain"]
 
-[node name="SmallBoulderClimb4" parent="HTerrain/Canyon Objects" instance=ExtResource( 20 )]
-transform = Transform( 0.862098, -0.506741, 0, 0.506741, 0.862098, 0, 0, 0, 1, 59.7235, 27.7368, 71.3585 )
+[node name="Collectable4" parent="HTerrain/CliffClimb" instance=ExtResource( 18 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.0267, 13.0085, 89.5741 )
+type = 2
 
-[node name="SmallBoulderClimb5" parent="HTerrain/Canyon Objects" instance=ExtResource( 20 )]
-transform = Transform( 0.862098, -0.506741, 0, 0.506741, 0.862098, 0, 0, 0, 1, 59.7317, 28.8078, 71.7793 )
+[node name="SmallBoulderClimb" parent="HTerrain/CliffClimb" instance=ExtResource( 20 )]
+transform = Transform( 0.104934, 0.715275, 0.69092, -0.98941, 0.145151, 0, -0.100287, -0.683603, 0.722931, 42.7083, 5.31618, 115.825 )
 
-[node name="SmallBoulderClimb6" parent="HTerrain/Canyon Objects" instance=ExtResource( 20 )]
-transform = Transform( 0.430417, -0.787054, -0.441913, 0.877372, 0.47981, 0, 0.212034, -0.387722, 0.897058, 59.4286, 29.8825, 72.0297 )
+[node name="SmallBoulderClimb2" parent="HTerrain/CliffClimb" instance=ExtResource( 20 )]
+transform = Transform( 0.960079, -0.257189, -0.110013, 0.261135, 0.683038, 0.682106, -0.100287, -0.683603, 0.722931, 41.8865, 6.12273, 116.013 )
 
-[node name="SmallBoulderClimb7" parent="HTerrain/Canyon Objects" instance=ExtResource( 20 )]
-transform = Transform( 0.430417, -0.787054, -0.441913, 0.877372, 0.47981, 0, 0.212034, -0.387722, 0.897058, 59.7942, 30.7251, 72.3834 )
+[node name="SmallBoulderClimb3" parent="HTerrain/CliffClimb" instance=ExtResource( 20 )]
+transform = Transform( 0.84083, 0.186134, -0.50829, 0.261135, 0.683038, 0.682106, 0.474144, -0.706267, 0.525713, 42.3328, 7.07857, 114.801 )
+
+[node name="SmallBoulderClimb4" parent="HTerrain/CliffClimb" instance=ExtResource( 20 )]
+transform = Transform( -0.592971, 0.185216, 0.783633, -0.614731, 0.524447, -0.589119, -0.520088, -0.831054, -0.197123, 41.4336, 7.98357, 115.291 )
+
+[node name="SmallBoulderClimb5" parent="HTerrain/CliffClimb" instance=ExtResource( 20 )]
+transform = Transform( -0.594327, 0.71891, -0.360478, -0.159033, -0.544438, -0.823587, -0.788343, -0.432152, 0.437905, 42.0836, 8.76328, 114.238 )
+
+[node name="SmallBoulderClimb6" parent="HTerrain/CliffClimb" instance=ExtResource( 20 )]
+transform = Transform( -0.328067, 0.897408, 0.295012, -0.520469, 0.0889083, -0.849239, -0.788343, -0.432152, 0.437905, 41.8086, 9.73099, 113.924 )
+
+[node name="SmallBoulderClimb7" parent="HTerrain/CliffClimb" instance=ExtResource( 20 )]
+transform = Transform( -0.328067, 0.897408, 0.295012, -0.520469, 0.0889083, -0.849239, -0.788343, -0.432152, 0.437905, 42.0133, 10.5193, 113.051 )
+
+[node name="SmallBoulderClimb8" parent="HTerrain/CliffClimb" instance=ExtResource( 20 )]
+transform = Transform( -0.822556, 0.21471, 0.526594, -0.520469, 0.0889083, -0.849239, -0.229159, -0.972623, 0.0386179, 41.2261, 11.3793, 113.124 )
+
+[node name="SmallBoulderClimb9" parent="HTerrain/CliffClimb" instance=ExtResource( 20 )]
+transform = Transform( -0.98813, 0.146151, -0.047323, -0.151932, -0.975299, 0.16034, -0.0227202, 0.165627, 0.985927, 40.9825, 12.3534, 112.648 )
 
 [node name="LogJam1" type="Spatial" parent="HTerrain"]
 
 [node name="MovableLog" parent="HTerrain/LogJam1" instance=ExtResource( 12 )]
-transform = Transform( -0.0140327, -0.462201, 0.886664, 0.999539, -0.0303467, 0, 0.0269073, 0.886256, 0.462414, 73.7524, 5.39694, 104.12 )
+transform = Transform( -0.0140327, -0.462201, 0.886664, 0.999539, -0.0303467, 0, 0.0269073, 0.886256, 0.462414, 81.7205, 5.39694, 107.383 )
 
 [node name="MovableLog2" parent="HTerrain/LogJam1" instance=ExtResource( 12 )]
-transform = Transform( 0.0258975, 0.852994, 0.521278, 0.999539, -0.0303467, 0, 0.015819, 0.521038, -0.853387, 72.0009, 5.39694, 104.258 )
+transform = Transform( 0.0302872, 0.99758, -0.0625812, 0.999539, -0.0303467, 0, -0.0018992, -0.0625524, -0.99804, 82.0797, 5.39694, 108.759 )
 
 [node name="MovableLog6" parent="HTerrain/LogJam1" instance=ExtResource( 12 )]
-transform = Transform( 0.00537185, 0.176935, 0.984208, 0.999539, -0.0303467, 0, 0.0298674, 0.983755, -0.177016, 74.9507, 5.5, 104.976 )
+transform = Transform( -0.029685, -0.977748, 0.207673, 0.999539, -0.0303467, 0, 0.00630218, 0.207578, 0.978198, 82.2426, 5.5, 109.686 )
 
 [node name="MovableLog5" parent="HTerrain/LogJam1" instance=ExtResource( 12 )]
-transform = Transform( 0.0211669, 0.697182, -0.716582, 0.999539, -0.0303467, 0, -0.0217459, -0.716252, -0.697503, 73.3255, 5.5, 106.3 )
+transform = Transform( 0.0299696, 0.987119, -0.157158, 0.999539, -0.0303467, 0, -0.00476925, -0.157086, -0.987573, 83.4113, 5.5, 107.638 )
 
 [node name="MovableLog3" parent="HTerrain/LogJam1" instance=ExtResource( 12 )]
-transform = Transform( -0.381271, -0.834938, -0.396877, 0.858359, -0.479146, 0.183407, -0.343295, -0.270735, 0.899361, 72.7972, 5.84161, 105.704 )
+transform = Transform( -0.381271, -0.834938, -0.396877, 0.858359, -0.479146, 0.183407, -0.343295, -0.270735, 0.899361, 80.9444, 5.84161, 107.422 )
 
 [node name="MovableLog7" parent="HTerrain/LogJam1" instance=ExtResource( 12 )]
-transform = Transform( 0.50601, 0.731624, -0.456816, 0.858359, -0.479146, 0.183407, -0.0846972, -0.484918, -0.870449, 76.1077, 5.82684, 104.993 )
+transform = Transform( 0.114113, 0.52683, 0.842276, 0.858359, -0.479146, 0.183407, 0.500198, 0.702047, -0.506886, 82.6658, 5.82684, 110.502 )
 
 [node name="MovableLog4" parent="HTerrain/LogJam1" instance=ExtResource( 12 )]
-transform = Transform( -0.247377, -0.699709, -0.670232, 0.858359, -0.479146, 0.183407, -0.449471, -0.52993, 0.719132, 73.5943, 5.83321, 103.438 )
+transform = Transform( 0.376961, 0.346505, -0.858973, 0.858359, -0.479146, 0.183407, -0.348023, -0.806445, -0.478044, 83.6463, 5.83321, 106.81 )
 
 [node name="LargeBoulder" parent="HTerrain/LogJam1" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 0.226583, -0.973992, 0, 0.973992, 0.226583, 73.5508, 4.63885, 109.62 )
+transform = Transform( 1, 0, 0, 0, 0.226583, -0.973992, 0, 0.973992, 0.226583, 80.1486, 4.63885, 112.118 )
 
 [node name="LargeBoulder3" parent="HTerrain/LogJam1" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, -0.421558, -0.906801, 0, 0.906801, -0.421558, 76.1694, 5.37982, 101.686 )
+transform = Transform( 1, 0, 0, 0, -0.421558, -0.906801, 0, 0.906801, -0.421558, 85.5259, 5.37982, 109.997 )
 
 [node name="LargeBoulder2" parent="HTerrain/LogJam1" instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 0.363072, -0.931761, 0, 0.931761, 0.363072, 76.3803, 5.3262, 107.943 )
+transform = Transform( 0.848372, 0.134974, 0.511906, 0, -0.966952, 0.254957, 0.529401, -0.216298, -0.820335, 79.0847, 5.3262, 109.947 )
 
 [node name="TreeJump1" type="Spatial" parent="HTerrain"]
 
@@ -169,9 +214,6 @@ autoplay = true
 
 [node name="Player" parent="." instance=ExtResource( 7 )]
 transform = Transform( 0.376548, 0, -0.926397, 0, 1, 0, 0.926397, 0, 0.376548, -207.187, 29.982, -186.476 )
-
-[node name="Collectable" parent="." instance=ExtResource( 18 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -206.108, 29.9781, -191.178 )
 
 [node name="WindArea" parent="." instance=ExtResource( 21 )]
 transform = Transform( 0.803504, 0, 0.5953, 0, 1, 0, -0.5953, 0, 0.803504, -194.302, 5, -114.272 )
