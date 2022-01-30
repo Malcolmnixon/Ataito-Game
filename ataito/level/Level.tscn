@@ -435,7 +435,7 @@ doppler_tracking = 2
 collision_layer = 65536
 collision_mask = 0
 script = ExtResource( 27 )
-wind_vector = Vector3( 5, 0, 0 )
+wind_vector = Vector3( 0, 0, 5 )
 
 [node name="CollisionShape" type="CollisionShape" parent="HTerrain/VineBridge/Waterfall/WaterFallPush"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.20048, 0 )
@@ -509,7 +509,7 @@ transform = Transform( -0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819,
 collision_layer = 65536
 collision_mask = 0
 script = ExtResource( 27 )
-wind_vector = Vector3( 5, 0, 0 )
+wind_vector = Vector3( 4, 0, 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="HTerrain/VineBridge/WaterPush"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67912, -3.8147e-06, 3.60138 )
