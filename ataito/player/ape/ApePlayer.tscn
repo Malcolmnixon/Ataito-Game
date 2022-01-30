@@ -55,15 +55,19 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03, -0.05, 0.15 )
 stream = ExtResource( 16 )
 script = ExtResource( 14 )
 
-[node name="Function_Direct_movement" parent="RightHandController" index="1" instance=ExtResource( 6 )]
+[node name="Function_Pickup" parent="RightHandController" index="1" instance=ExtResource( 8 )]
+pickup_range = 0.1
+
+[node name="Function_Direct_movement" parent="RightHandController" index="2" instance=ExtResource( 6 )]
 smooth_rotation = true
 max_speed = 4.0
 canFly = false
 
-[node name="Function_Pickup" parent="RightHandController" index="2" instance=ExtResource( 8 )]
-pickup_range = 0.1
+[node name="Function_Jump_movement" parent="RightHandController" index="3" instance=ExtResource( 5 )]
+jump_button_id = 7
+jump_velocity = 4.0
 
-[node name="Function_Toggle_Animal" type="Node" parent="RightHandController" index="3"]
+[node name="Function_Toggle_Animal" type="Node" parent="RightHandController" index="4"]
 script = ExtResource( 9 )
 controller = null
 

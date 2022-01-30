@@ -76,7 +76,6 @@ shader_params/u_colormap_opacity_per_texture = Plane( 1, 1, 1, 1 )
 
 [node name="Hut_6" parent="HTerrain/Home" instance=ExtResource( 10 )]
 transform = Transform( -0.61985, 0, 0.505753, 0, 0.8, 0, -0.505753, 0, -0.61985, 52.742, 30.0306, 69.1498 )
-visible = false
 
 [node name="Water" parent="HTerrain/Home" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61.4491, 25.2031, 62.7737 )

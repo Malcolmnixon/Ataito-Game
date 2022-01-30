@@ -47,7 +47,11 @@ smooth_rotation = true
 max_speed = 2.0
 canFly = false
 
-[node name="Function_Toggle_Animal" type="Node" parent="RightHandController" index="2"]
+[node name="Function_Jump_movement" parent="RightHandController" index="2" instance=ExtResource( 4 )]
+jump_button_id = 7
+jump_velocity = 2.0
+
+[node name="Function_Toggle_Animal" type="Node" parent="RightHandController" index="3"]
 script = ExtResource( 6 )
 controller = null
 
