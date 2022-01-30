@@ -3,6 +3,7 @@ extends Spatial
 onready var collectable_tracker = $CollectableTracker
 onready var pedestal_light = $PedestalOfLight
 onready var pedestal_dark = $PedestalOfDark
+onready var celebrate_particles = $CelebrationParticles
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,3 +18,11 @@ func _update_pedestals(_amount, _total):
 	for orb in dark_orbs:
 		orb.emitting = int(orb.name) <= collectable_tracker.collected_dark
 
+func _on_level_ended():
+	celebrate_particles.emitting = true
+
+	# Don't allow the player to collect more orbs after stopping the timer
+	var collectables = get_tree().get_nodes_in_group("collectable")
+	for c in collectables:
+		c._already_collected = true
+		c._orb.emitting = false
