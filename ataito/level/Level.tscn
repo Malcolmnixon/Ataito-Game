@@ -105,6 +105,7 @@ transform = Transform( 0.430417, -0.787054, -0.441913, 0.877372, 0.47981, 0, 0.2
 
 [node name="Collectable" parent="HTerrain/Home" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49.892, 29.9781, 64.822 )
+type = 1
 
 [node name="Canyon Objects" type="Spatial" parent="HTerrain"]
 
