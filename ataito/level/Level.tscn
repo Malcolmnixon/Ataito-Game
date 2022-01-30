@@ -116,7 +116,6 @@ transform = Transform( 0.628506, -0.774731, 0.0690747, 0, 0.0888073, 0.996049, -
 
 [node name="Collectable2" parent="HTerrain/Canyon Objects" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 71.3562, 26.6773, 56.0996 )
-type = 2
 
 [node name="Collectable3" parent="HTerrain/Canyon Objects" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100.16, 21.9313, 59.4735 )
@@ -125,7 +124,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 100.16, 21.9313, 59.4735 )
 
 [node name="Collectable4" parent="HTerrain/CliffClimb" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 46.0267, 13.0085, 89.5741 )
-type = 2
 
 [node name="SmallBoulderClimb" parent="HTerrain/CliffClimb" instance=ExtResource( 20 )]
 transform = Transform( 0.104934, 0.715275, 0.69092, -0.98941, 0.145151, 0, -0.100287, -0.683603, 0.722931, 42.7083, 5.31618, 115.825 )
@@ -213,7 +211,6 @@ transform = Transform( 0.920013, 0, 0.391887, 0, 1, 0, -0.391887, 0, 0.920013, 1
 
 [node name="Collectable" parent="HTerrain/WaterTrap" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 82.3926, 5.03971, 130.493 )
-type = 2
 
 [node name="WindArea" parent="HTerrain/WaterTrap" instance=ExtResource( 21 )]
 transform = Transform( 0.803504, 0, 0.5953, 0, 1, 0, -0.5953, 0, 0.803504, 61.698, 5, 141.728 )
@@ -275,10 +272,13 @@ transform = Transform( 0.826619, 0.0729585, -0.558012, 0.111003, 0.950942, 0.288
 transform = Transform( 0.815338, 0.258582, -0.518035, -0.137479, 0.955603, 0.26062, 0.562427, -0.141275, 0.814688, 149.129, 23.8776, 80.3971 )
 
 [node name="ClimbingVines12" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
-transform = Transform( 0.27513, 0.443926, -0.85278, 0.28322, 0.810225, 0.513148, 0.918743, -0.382707, 0.0971888, 149.879, 26.713, 79.9819 )
+transform = Transform( -0.686107, 0.545025, -0.481876, 0.28322, 0.810225, 0.513148, 0.670106, 0.215598, -0.710264, 149.879, 26.713, 79.9819 )
 
 [node name="ClimbingVines10" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
 transform = Transform( 0.826575, -0.0657328, -0.558975, 0.057777, 0.99782, -0.031902, 0.559853, -0.00592646, 0.828571, 149.168, 18, 81.2721 )
+
+[node name="ClimbingVines13" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
+transform = Transform( 0.826852, 0.0687629, -0.5582, -0.0536668, 0.997616, 0.0433975, 0.559853, -0.00592646, 0.828571, 148.935, 15, 81.2721 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
@@ -295,8 +295,7 @@ transform = Transform( 0.376548, 0, -0.926397, 0, 1, 0, 0.926397, 0, 0.376548, -
 transform = Transform( -0.241496, 0, -0.437812, 0, 0.5, 0, 0.437812, 0, -0.241496, -190.522, 32.4009, -188.983 )
 
 [node name="EndGate" parent="." instance=ExtResource( 23 )]
-transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -133.551, 7.89802, -147.188 )
-visible = false
+transform = Transform( 2.41481, 0, -0.647048, 0, 2.5, 0, 0.647048, 0, 2.41481, -98.551, 23.898, -216.602 )
 
 [editable path="HTerrain/WaterTrap/WindArea"]
 [editable path="HTerrain/WaterTrap/WindArea2"]
