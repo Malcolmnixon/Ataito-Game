@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/custom/bucket-wrap-texture.jpg" type="Texture" id=1]
 [ext_resource path="res://ataito/collectable/SpiritOrb.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ataito/collectable/Collectable.gd" type="Script" id=3]
-[ext_resource path="res://ataito/collectable/material/Light.material" type="Material" id=4]
 [ext_resource path="res://addons/godot-xr-tools/objects/Object_pickable.gd" type="Script" id=5]
 [ext_resource path="res://addons/godot_sfxr/SfxrStreamPlayer.gd" type="Script" id=6]
 
@@ -46,7 +45,6 @@ transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.25, 0 )
 shape = SubResource( 3 )
 
 [node name="SpiritOrb" parent="Body" instance=ExtResource( 2 )]
-process_material = ExtResource( 4 )
 
 [node name="Bucket" type="MeshInstance" parent="Body"]
 transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.25, 0 )

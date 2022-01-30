@@ -7,7 +7,7 @@ enum Alignment {
 	Dark = 2
 }
 
-export (Alignment) var type := Alignment.Light setget _update_type, _get_type
+export (Alignment) var type := Alignment.Light setget _update_type
 
 onready var _object : Spatial = $Body
 onready var _particles : Particles = $Body/SpiritOrb
@@ -21,16 +21,13 @@ func _ready():
 	_object.connect("picked_up", self, "collect")
 	_update_type(type)
 
-func _get_type():
-	return _particles.type
-
 func _update_type(value):
 	if !_particles:
 		_particles = get_node_or_null("Particles")
 	if !_particles:
 		return
-
-	_particles.update_type(type)
+	type = value
+	_particles.type = value
 
 func collect(source: XRToolsPickable):
 	if _already_collected:
