@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://ataito/level/terrain/data.hterrain" type="Resource" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://ataito/intro_board/IntroBoard.tscn" type="PackedScene" id=22]
 [ext_resource path="res://ataito/end_gate/EndGate.tscn" type="PackedScene" id=23]
 [ext_resource path="res://ataito/water_spout/WaterSpout.tscn" type="PackedScene" id=24]
+[ext_resource path="res://ataito/climbing/ClimbingVines.tscn" type="PackedScene" id=25]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 8 )
@@ -241,6 +242,44 @@ shape = SubResource( 4 )
 [node name="WaterSpout" parent="HTerrain" instance=ExtResource( 24 )]
 transform = Transform( -0.999738, 0, -0.0228968, 0, 1, 0, 0.0228968, 0, -0.999738, 121.307, 5, 132.658 )
 
+[node name="Climbing Cliff" type="Spatial" parent="HTerrain"]
+
+[node name="ClimbingVines" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 0.996146, 0.0877121, 0, -0.0877121, 0.996146, 127.836, 8, 105.665 )
+
+[node name="ClimbingVines2" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
+transform = Transform( 0.992734, 0.120327, 0, -0.120327, 0.992734, 0, 0, 0, 1, 127.836, 11, 105.4 )
+
+[node name="ClimbingVines3" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
+transform = Transform( 0.919845, 0.264064, 0.290096, -0.289453, 0.956008, 0.0475883, -0.264768, -0.127743, 0.955814, 128.187, 14, 105.4 )
+
+[node name="ClimbingVines4" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
+transform = Transform( 0.691475, 0, -0.7224, 0.248651, 0.938896, 0.238006, 0.678259, -0.344201, 0.649223, 130.822, 12, 93.5969 )
+
+[node name="ClimbingVines5" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
+transform = Transform( 0.832127, -0.253078, -0.493474, 0.382727, 0.906011, 0.180732, 0.401354, -0.339258, 0.850775, 130.822, 14.6, 92.5969 )
+
+[node name="ClimbingVines6" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
+transform = Transform( 0.878662, -0.115248, -0.463326, 0.35444, 0.807632, 0.471278, 0.319883, -0.578315, 0.750484, 130.321, 17.4, 91.5359 )
+
+[node name="ClimbingVines7" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 0.983003, 0.183591, 0, -0.183591, 0.983003, 140.694, 18, 78.625 )
+
+[node name="ClimbingVines8" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
+transform = Transform( 1, 0, 0, 0, 0.991561, 0.129644, 0, -0.129644, 0.991561, 140.784, 21, 78.0663 )
+
+[node name="ClimbingVines9" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
+transform = Transform( 0.826619, 0.0729585, -0.558012, 0.111003, 0.950942, 0.288769, 0.551706, -0.300643, 0.777969, 148.945, 21, 81.2721 )
+
+[node name="ClimbingVines11" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
+transform = Transform( 0.815338, 0.258582, -0.518035, -0.137479, 0.955603, 0.26062, 0.562427, -0.141275, 0.814688, 149.129, 23.8776, 80.3971 )
+
+[node name="ClimbingVines12" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
+transform = Transform( 0.27513, 0.443926, -0.85278, 0.28322, 0.810225, 0.513148, 0.918743, -0.382707, 0.0971888, 149.879, 26.713, 79.9819 )
+
+[node name="ClimbingVines10" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
+transform = Transform( 0.826575, -0.0657328, -0.558975, 0.057777, 0.99782, -0.031902, 0.559853, -0.00592646, 0.828571, 149.168, 18, 81.2721 )
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
 
@@ -257,6 +296,7 @@ transform = Transform( -0.241496, 0, -0.437812, 0, 0.5, 0, 0.437812, 0, -0.24149
 
 [node name="EndGate" parent="." instance=ExtResource( 23 )]
 transform = Transform( 2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -133.551, 7.89802, -147.188 )
+visible = false
 
 [editable path="HTerrain/WaterTrap/WindArea"]
 [editable path="HTerrain/WaterTrap/WindArea2"]

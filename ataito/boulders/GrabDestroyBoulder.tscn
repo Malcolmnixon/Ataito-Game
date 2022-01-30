@@ -23,6 +23,7 @@ points = PoolVector3Array( -0.974928, 0, -0.22253, -0.781966, 0, 0.623379, -0.84
 script = ExtResource( 4 )
 
 [node name="RigidBody" type="RigidBody" parent="."]
+mode = 1
 script = ExtResource( 3 )
 highlight_mesh_instance = null
 
