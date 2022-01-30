@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/420557__marcmatthewsmusic__river-02.ogg-08ccf246058afbb9656b2dfde7349199.oggstr"
+
+[deps]
+
+source_file="res://assets/freesound.org/420557__marcmatthewsmusic__river-02.ogg"
+dest_files=[ "res://.import/420557__marcmatthewsmusic__river-02.ogg-08ccf246058afbb9656b2dfde7349199.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
