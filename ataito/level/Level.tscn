@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://ataito/level/terrain/data.hterrain" type="Resource" id=2]
@@ -29,6 +29,8 @@
 [ext_resource path="res://addons/godot-xr-tools/objects/Wind_area.gd" type="Script" id=27]
 [ext_resource path="res://assets/freesound.org/441152__keng-wai-chane-chick-te__geyser-soldemanana-bolivia.ogg" type="AudioStream" id=28]
 [ext_resource path="res://assets/freesound.org/420557__marcmatthewsmusic__river-02.ogg" type="AudioStream" id=29]
+[ext_resource path="res://assets/maujoe.basic_water_material/textures/water-grey.png" type="Texture" id=30]
+[ext_resource path="res://assets/freesound.org/511076__nox-sound__ambiance-waterfall-loop-03.ogg" type="AudioStream" id=31]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 8 )
@@ -40,6 +42,47 @@ extents = Vector3( 15, 1, 7 )
 
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 14.0465, 1, 4.87628 )
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0.294393, 0.764486 )
+colors = PoolColorArray( 0.239216, 0.239216, 0.678431, 1, 1, 1, 1, 0.294118 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="Curve" id=12]
+_data = [ Vector2( 0.074796, 0.521472 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=13]
+curve = SubResource( 12 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+emission_shape = 2
+emission_box_extents = Vector3( 0.2, 0, 0 )
+direction = Vector3( 0, 0.2, 0.5 )
+spread = 2.0
+gravity = Vector3( 0, -3, 0 )
+initial_velocity = 2.0
+linear_accel = 1.0
+scale = 2.0
+scale_curve = SubResource( 13 )
+color = Color( 0.494118, 0.792157, 0.988235, 1 )
+color_ramp = SubResource( 8 )
+
+[sub_resource type="SpatialMaterial" id=14]
+flags_transparent = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 30 )
+
+[sub_resource type="QuadMesh" id=11]
+material = SubResource( 14 )
+
+[sub_resource type="BoxShape" id=15]
+extents = Vector3( 0.63222, 2.78088, 3.64302 )
 
 [sub_resource type="BoxShape" id=6]
 extents = Vector3( 50, 1, 20 )
@@ -369,6 +412,38 @@ transform = Transform( 0.978701, -0.111191, -0.172571, 0.109502, 0.993799, -0.01
 [node name="VineWall5" parent="HTerrain/VineBridge" instance=ExtResource( 26 )]
 transform = Transform( 0.979488, -0.103799, -0.17271, 0.102222, 0.994598, -0.0180246, 0.173648, 0, 0.984808, 192.1, 27.9, 55.4 )
 
+[node name="Waterfall" type="Particles" parent="HTerrain/VineBridge"]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 1, 180.701, 17.9582, 41.9187 )
+amount = 200
+lifetime = 3.0
+visibility_aabb = AABB( -1.42276, -5.66023, -3.19859, 2.08868, 11.3205, 6.39718 )
+process_material = SubResource( 9 )
+draw_pass_1 = SubResource( 11 )
+
+[node name="VineWall" parent="HTerrain/VineBridge/Waterfall" instance=ExtResource( 26 )]
+transform = Transform( 0.328269, 0, -0.0578827, 0.101722, 0.810461, 0.576893, 0.140735, -0.585793, 0.798149, 0.144339, 0.479904, -0.80835 )
+
+[node name="Sound" type="AudioStreamPlayer3D" parent="HTerrain/VineBridge/Waterfall"]
+transform = Transform( 0.333333, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+stream = ExtResource( 31 )
+unit_db = 20.0
+autoplay = true
+max_distance = 60.0
+doppler_tracking = 2
+
+[node name="WaterFallPush" type="Area" parent="HTerrain/VineBridge/Waterfall"]
+collision_layer = 65536
+collision_mask = 0
+script = ExtResource( 27 )
+wind_vector = Vector3( 5, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="HTerrain/VineBridge/Waterfall/WaterFallPush"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.20048, 0 )
+shape = SubResource( 15 )
+
+[node name="LargeBoulder" parent="HTerrain/VineBridge/Waterfall" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 0.32509, 0.945683, 0, -0.945683, 0.32509, 0.150213, 3.4757, -2.45277 )
+
 [node name="Water" parent="HTerrain/VineBridge" instance=ExtResource( 19 )]
 transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 180.701, 5.45748, 55.1009 )
 
@@ -429,14 +504,14 @@ autoplay = true
 max_distance = 100.0
 doppler_tracking = 2
 
-[node name="Area" type="Area" parent="HTerrain/VineBridge"]
+[node name="WaterPush" type="Area" parent="HTerrain/VineBridge"]
 transform = Transform( -0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 173.782, 5, 72.147 )
 collision_layer = 65536
 collision_mask = 0
 script = ExtResource( 27 )
 wind_vector = Vector3( 5, 0, 0 )
 
-[node name="CollisionShape" type="CollisionShape" parent="HTerrain/VineBridge/Area"]
+[node name="CollisionShape" type="CollisionShape" parent="HTerrain/VineBridge/WaterPush"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67912, -3.8147e-06, 3.60138 )
 shape = SubResource( 6 )
 
