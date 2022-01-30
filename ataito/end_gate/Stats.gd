@@ -25,11 +25,15 @@ func _update_stats():
 	#Weird font formatting issues selved by adding spacing after zeros
 	var time_formatted := ""
 	if time_tracker.elapsed > 60:
-		time_formatted += "%d:%02d" % [time_tracker.elapsed/60, time_tracker.elapsed%60]
+		if time_tracker.elapsed % 60 < 10:
+			time_formatted += "%d:0 %d" % [time_tracker.elapsed/60, time_tracker.elapsed%60]
+		else :
+			time_formatted += "%d:%02d" % [time_tracker.elapsed/60, time_tracker.elapsed%60]
 	elif time_tracker.elapsed < 10:
 		time_formatted += "0 :0 %d" % [time_tracker.elapsed]
 	else:
 		time_formatted += "0 :%02d" % [time_tracker.elapsed]
+
 	#Update label
 	text = "You've Collected: {amount} of {total}\n Level Time: {time}".format({
 		'amount': collectable_tracker.collected_amount,
