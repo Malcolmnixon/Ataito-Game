@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://ataito/level/terrain/data.hterrain" type="Resource" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://ataito/slick/Water.tscn" type="PackedScene" id=19]
 [ext_resource path="res://ataito/boulders/SmallBoulderClimb.tscn" type="PackedScene" id=20]
 [ext_resource path="res://addons/godot-xr-tools/objects/Wind_area.tscn" type="PackedScene" id=21]
+[ext_resource path="res://ataito/intro_board/IntroBoard.tscn" type="PackedScene" id=22]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 8 )
@@ -238,6 +239,9 @@ wind_vector = Vector3( -5, 0, 0 )
 [node name="CollisionShape" parent="WindArea3" index="0"]
 transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0 )
 shape = SubResource( 4 )
+
+[node name="IntroBoard" parent="." instance=ExtResource( 22 )]
+transform = Transform( -0.241496, 0, -0.437812, 0, 0.5, 0, 0.437812, 0, -0.241496, -190.522, 32.4009, -188.983 )
 
 [editable path="WindArea"]
 [editable path="WindArea2"]
