@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://ataito/level/terrain/data.hterrain" type="Resource" id=2]
@@ -23,11 +23,18 @@
 [ext_resource path="res://addons/godot-xr-tools/objects/Wind_area.tscn" type="PackedScene" id=21]
 [ext_resource path="res://ataito/intro_board/IntroBoard.tscn" type="PackedScene" id=22]
 [ext_resource path="res://ataito/end_gate/EndBoard.tscn" type="PackedScene" id=23]
+[ext_resource path="res://ataito/water_spout/WaterSpout.tscn" type="PackedScene" id=24]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 8 )
 mode = 0
 textures = [ [ ExtResource( 9 ), ExtResource( 17 ), ExtResource( 4 ), ExtResource( 16 ) ], [ null, ExtResource( 14 ), ExtResource( 5 ), null ] ]
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 15, 1, 7 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 14.0465, 1, 4.87628 )
 
 [sub_resource type="PanoramaSky" id=2]
 panorama = ExtResource( 3 )
@@ -43,12 +50,6 @@ fog_depth_begin = 50.0
 fog_depth_end = 80.0
 fog_depth_curve = 1.23114
 dof_blur_far_distance = 40.0
-
-[sub_resource type="BoxShape" id=5]
-extents = Vector3( 15, 1, 7 )
-
-[sub_resource type="BoxShape" id=4]
-extents = Vector3( 14.0465, 1, 4.87628 )
 
 [node name="Level" type="Spatial"]
 
@@ -213,6 +214,33 @@ transform = Transform( 0.920013, 0, 0.391887, 0, 1, 0, -0.391887, 0, 0.920013, 1
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 82.3926, 5.03971, 130.493 )
 type = 2
 
+[node name="WindArea" parent="HTerrain/WaterTrap" instance=ExtResource( 21 )]
+transform = Transform( 0.803504, 0, 0.5953, 0, 1, 0, -0.5953, 0, 0.803504, 61.698, 5, 141.728 )
+wind_vector = Vector3( -5, 0, 0 )
+
+[node name="CollisionShape" parent="HTerrain/WaterTrap/WindArea" index="0"]
+transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0 )
+shape = SubResource( 5 )
+
+[node name="WindArea2" parent="HTerrain/WaterTrap" instance=ExtResource( 21 )]
+transform = Transform( 0.9748, 0, 0.22308, 0, 1, 0, -0.22308, 0, 0.9748, 83.014, 5, 131.208 )
+wind_vector = Vector3( -5, 0, 0 )
+
+[node name="CollisionShape" parent="HTerrain/WaterTrap/WindArea2" index="0"]
+transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="WindArea3" parent="HTerrain/WaterTrap" instance=ExtResource( 21 )]
+transform = Transform( 0.991921, 0, 0.126857, 0, 1, 0, -0.126857, 0, 0.991921, 98.477, 5, 129.114 )
+wind_vector = Vector3( -5, 0, 0 )
+
+[node name="CollisionShape" parent="HTerrain/WaterTrap/WindArea3" index="0"]
+transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="WaterSpout" parent="HTerrain" instance=ExtResource( 24 )]
+transform = Transform( -0.999738, 0, -0.0228968, 0, 1, 0, 0.0228968, 0, -0.999738, 121.307, 5, 132.658 )
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
 
@@ -224,36 +252,12 @@ autoplay = true
 [node name="Player" parent="." instance=ExtResource( 7 )]
 transform = Transform( 0.376548, 0, -0.926397, 0, 1, 0, 0.926397, 0, 0.376548, -207.187, 29.982, -186.476 )
 
-[node name="WindArea" parent="." instance=ExtResource( 21 )]
-transform = Transform( 0.803504, 0, 0.5953, 0, 1, 0, -0.5953, 0, 0.803504, -194.302, 5, -114.272 )
-wind_vector = Vector3( -5, 0, 0 )
-
-[node name="CollisionShape" parent="WindArea" index="0"]
-transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0 )
-shape = SubResource( 5 )
-
-[node name="WindArea2" parent="." instance=ExtResource( 21 )]
-transform = Transform( 0.9748, 0, 0.22308, 0, 1, 0, -0.22308, 0, 0.9748, -172.986, 5, -124.792 )
-wind_vector = Vector3( -5, 0, 0 )
-
-[node name="CollisionShape" parent="WindArea2" index="0"]
-transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0 )
-shape = SubResource( 4 )
-
-[node name="WindArea3" parent="." instance=ExtResource( 21 )]
-transform = Transform( 0.991921, 0, 0.126857, 0, 1, 0, -0.126857, 0, 0.991921, -157.523, 5, -126.886 )
-wind_vector = Vector3( -5, 0, 0 )
-
-[node name="CollisionShape" parent="WindArea3" index="0"]
-transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0 )
-shape = SubResource( 4 )
-
 [node name="IntroBoard" parent="." instance=ExtResource( 22 )]
 transform = Transform( -0.241496, 0, -0.437812, 0, 0.5, 0, 0.437812, 0, -0.241496, -190.522, 32.4009, -188.983 )
 
 [node name="EndBoard" parent="." instance=ExtResource( 23 )]
-transform = Transform( -0.719619, 0, 0.69437, 0, 1, 0, -0.69437, 0, -0.719619, -158.131, 8.23253, -105.986 )
+transform = Transform( 0.999841, 0, 0.0178538, 0, 1, 0, -0.0178538, 0, 0.999841, -133.131, 11.2325, -143.986 )
 
-[editable path="WindArea"]
-[editable path="WindArea2"]
-[editable path="WindArea3"]
+[editable path="HTerrain/WaterTrap/WindArea"]
+[editable path="HTerrain/WaterTrap/WindArea2"]
+[editable path="HTerrain/WaterTrap/WindArea3"]
