@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://ataito/collectable/SpiritOrb.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/ambientcg.com/rock_046/Rock046S_1K_Color.jpg" type="Texture" id=2]
@@ -7,9 +7,11 @@
 [ext_resource path="res://assets/ambientcg.com/ground_037/Ground037_1K_Color.jpg" type="Texture" id=5]
 [ext_resource path="res://assets/ambientcg.com/ground_037/Ground037_1K_NormalGL.jpg" type="Texture" id=6]
 [ext_resource path="res://ataito/collectable/pass/pass_dark.tres" type="QuadMesh" id=7]
+[ext_resource path="res://addons/kenney_particle_pack/star_08.png" type="Texture" id=8]
 [ext_resource path="res://ataito/collectable/material/Dark.material" type="Material" id=9]
 [ext_resource path="res://ataito/collectable/CollectableTracker.gd" type="Script" id=10]
 [ext_resource path="res://ataito/end_gate/EndGate.gd" type="Script" id=11]
+[ext_resource path="res://addons/kenney_particle_pack/magic_04.png" type="Texture" id=12]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "gate-area-base_Cylinder001"
@@ -63,6 +65,49 @@ points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1,
 
 [sub_resource type="ConvexPolygonShape" id=10]
 points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
+
+[sub_resource type="ParticlesMaterial" id=11]
+spread = 180.0
+flatness = 1.0
+initial_velocity = 4.0
+linear_accel = -15.0
+radial_accel = 12.88
+radial_accel_random = 0.4
+tangential_accel_random = 0.36
+angle_random = 0.32
+hue_variation_random = 0.5
+
+[sub_resource type="SpatialMaterial" id=12]
+flags_transparent = true
+flags_unshaded = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.662745, 0.619608, 0.156863, 1 )
+albedo_texture = ExtResource( 8 )
+
+[sub_resource type="QuadMesh" id=13]
+material = SubResource( 12 )
+size = Vector2( 0.5, 0.5 )
+center_offset = Vector3( -0.441, 0, -0.657 )
+
+[sub_resource type="SpatialMaterial" id=14]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.623529, 0.686275, 0.698039, 1 )
+albedo_texture = ExtResource( 12 )
+
+[sub_resource type="QuadMesh" id=15]
+material = SubResource( 14 )
+size = Vector2( 0.5, 0.5 )
 
 [node name="EndGate" type="StaticBody"]
 script = ExtResource( 11 )
@@ -203,4 +248,17 @@ shape = SubResource( 9 )
 transform = Transform( 0.5, 0, 0, 0, 0.313245, -0.157294, 0, 0.103814, 0.474614, 1.41305, 0.218372, 0.967969 )
 shape = SubResource( 10 )
 
+[node name="CelebrationParticles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48741, -0.361395 )
+emitting = false
+amount = 200
+lifetime = 3.0
+explosiveness = 0.9
+visibility_aabb = AABB( -1.01254, -2.20206, -2.36474, 2.02509, 4.40412, 4.72948 )
+process_material = SubResource( 11 )
+draw_passes = 2
+draw_pass_1 = SubResource( 13 )
+draw_pass_2 = SubResource( 15 )
+
 [connection signal="area_entered" from="EndTimerArea" to="EndBoard" method="stop_level_timer"]
+[connection signal="level_ended" from="EndBoard" to="." method="_on_level_ended"]
