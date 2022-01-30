@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://ataito/level/terrain/data.hterrain" type="Resource" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://ataito/boulders/SmallBoulderClimb.tscn" type="PackedScene" id=20]
 [ext_resource path="res://addons/godot-xr-tools/objects/Wind_area.tscn" type="PackedScene" id=21]
 [ext_resource path="res://ataito/intro_board/IntroBoard.tscn" type="PackedScene" id=22]
+[ext_resource path="res://ataito/end_gate/EndBoard.tscn" type="PackedScene" id=23]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 8 )
@@ -75,6 +76,7 @@ shader_params/u_colormap_opacity_per_texture = Plane( 1, 1, 1, 1 )
 
 [node name="Hut_6" parent="HTerrain/Home" instance=ExtResource( 10 )]
 transform = Transform( -0.61985, 0, 0.505753, 0, 0.8, 0, -0.505753, 0, -0.61985, 52.742, 30.0306, 69.1498 )
+visible = false
 
 [node name="Water" parent="HTerrain/Home" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 61.4491, 25.2031, 62.7737 )
@@ -105,7 +107,6 @@ transform = Transform( 0.430417, -0.787054, -0.441913, 0.877372, 0.47981, 0, 0.2
 
 [node name="Collectable" parent="HTerrain/Home" instance=ExtResource( 18 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49.892, 29.9781, 64.822 )
-type = 1
 
 [node name="Canyon Objects" type="Spatial" parent="HTerrain"]
 
@@ -250,6 +251,9 @@ shape = SubResource( 4 )
 
 [node name="IntroBoard" parent="." instance=ExtResource( 22 )]
 transform = Transform( -0.241496, 0, -0.437812, 0, 0.5, 0, 0.437812, 0, -0.241496, -190.522, 32.4009, -188.983 )
+
+[node name="EndBoard" parent="." instance=ExtResource( 23 )]
+transform = Transform( -0.719619, 0, 0.69437, 0, 1, 0, -0.69437, 0, -0.719619, -158.131, 8.23253, -105.986 )
 
 [editable path="WindArea"]
 [editable path="WindArea2"]
