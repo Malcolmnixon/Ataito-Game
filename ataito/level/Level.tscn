@@ -251,37 +251,37 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3828, 2.9152, 23.6286 )
 transform = Transform( 1, 0, 0, 0, 0.996146, 0.0877121, 0, -0.0877121, 0.996146, 127.836, 8, 105.665 )
 
 [node name="ClimbingVines2" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
-transform = Transform( 0.992734, 0.120327, 0, -0.120327, 0.992734, 0, 0, 0, 1, 127.836, 11, 105.4 )
+transform = Transform( 0.992734, 0.120327, 0, -0.120327, 0.992734, 0, 0, 0, 1, 127.836, 10.9743, 105.4 )
 
 [node name="ClimbingVines3" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
-transform = Transform( 0.919845, 0.264064, 0.290096, -0.289453, 0.956008, 0.0475883, -0.264768, -0.127743, 0.955814, 128.187, 14, 105.4 )
+transform = Transform( 0.919845, 0.264064, 0.290096, -0.289453, 0.956008, 0.0475883, -0.264768, -0.127743, 0.955814, 128.187, 13.9152, 105.4 )
 
 [node name="ClimbingVines4" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
-transform = Transform( 0.691475, 0, -0.7224, 0.248651, 0.938896, 0.238006, 0.678259, -0.344201, 0.649223, 130.822, 12, 93.5969 )
+transform = Transform( 0.679053, -0.0412662, -0.732928, 0.295145, 0.929515, 0.221115, 0.672143, -0.366469, 0.643369, 130.822, 12, 93.5969 )
 
 [node name="ClimbingVines5" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
-transform = Transform( 0.832127, -0.253078, -0.493474, 0.382727, 0.906011, 0.180732, 0.401354, -0.339258, 0.850775, 130.822, 14.6, 92.5969 )
+transform = Transform( 0.870672, -0.155682, -0.466577, 0.32402, 0.895215, 0.305944, 0.370057, -0.417558, 0.829881, 130.697, 14.7818, 92.5038 )
 
 [node name="ClimbingVines6" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
-transform = Transform( 0.878662, -0.115248, -0.463326, 0.35444, 0.807632, 0.471278, 0.319883, -0.578315, 0.750484, 130.321, 17.4, 91.5359 )
+transform = Transform( 0.865953, -0.14654, -0.478175, 0.360505, 0.845588, 0.393723, 0.346643, -0.513329, 0.785068, 130.227, 17.4621, 91.2575 )
 
 [node name="ClimbingVines7" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
 transform = Transform( 1, 0, 0, 0, 0.983003, 0.183591, 0, -0.183591, 0.983003, 140.694, 18, 78.625 )
 
 [node name="ClimbingVines8" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
-transform = Transform( 1, 0, 0, 0, 0.991561, 0.129644, 0, -0.129644, 0.991561, 140.784, 21, 78.0663 )
+transform = Transform( 1, 0, 0, 0, 0.991561, 0.129644, 0, -0.129644, 0.991561, 140.695, 20.9421, 78.0723 )
 
 [node name="ClimbingVines9" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
-transform = Transform( 0.826619, 0.0729585, -0.558012, 0.111003, 0.950942, 0.288769, 0.551706, -0.300643, 0.777969, 148.945, 21, 81.2721 )
+transform = Transform( 0.826619, 0.0729585, -0.558012, 0.111003, 0.950942, 0.288769, 0.551706, -0.300643, 0.777969, 148.945, 20.9598, 81.2372 )
 
 [node name="ClimbingVines11" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
-transform = Transform( 0.815338, 0.258582, -0.518035, -0.137479, 0.955603, 0.26062, 0.562427, -0.141275, 0.814688, 149.129, 23.8776, 80.3971 )
+transform = Transform( 0.809217, 0.296427, -0.507247, -0.195483, 0.95004, 0.243333, 0.554035, -0.0977514, 0.826734, 149.162, 23.7984, 80.3344 )
 
 [node name="ClimbingVines12" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
-transform = Transform( -0.686107, 0.545025, -0.481876, 0.28322, 0.810225, 0.513148, 0.670106, 0.215598, -0.710264, 149.879, 26.713, 79.9819 )
+transform = Transform( -0.721393, 0.414486, -0.554791, 0.174783, 0.884148, 0.433281, 0.670106, 0.215598, -0.710264, 150.03, 26.6243, 80.0315 )
 
 [node name="ClimbingVines10" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
-transform = Transform( 0.826575, -0.0657328, -0.558975, 0.057777, 0.99782, -0.031902, 0.559853, -0.00592646, 0.828571, 149.168, 18, 81.2721 )
+transform = Transform( 0.826575, -0.0657328, -0.558975, 0.057777, 0.99782, -0.031902, 0.559853, -0.00592646, 0.828571, 149.141, 18, 81.2533 )
 
 [node name="ClimbingVines13" parent="HTerrain/Climbing Cliff" instance=ExtResource( 25 )]
 transform = Transform( 0.826852, 0.0687629, -0.5582, -0.0536668, 0.997616, 0.0433975, 0.559853, -0.00592646, 0.828571, 148.935, 15, 81.2721 )
