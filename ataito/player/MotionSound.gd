@@ -14,7 +14,8 @@ func _ready():
 		_timer = $Timer
 	else:
 		_timer = Timer.new()
-		add_child(_timer)
+		add_child(_timer)\
+	# warning-ignore:return_value_discarded
 	_timer.connect("timeout", self, "play")
 
 func _process(_delta):
@@ -25,10 +26,6 @@ func _process(_delta):
 			_timer.stop()
 			stop()
 		return
-
-	var x = _player_body.velocity.x
-	var y = _player_body.velocity.y
-	var z = _player_body.velocity.z
 
 	# checking components with abs helps fix comparing signed, negative 0 with Vector3.ZERO
 	var moving_in_x = abs(_player_body.velocity.x) > 1

@@ -15,7 +15,7 @@ func _ready():
 		c.connect("collected", self, "on_Collectable_collected")
 
 func on_Collectable_collected(type, _node):
-	if type == Collectable.Alignment.Light:
+	if type == SpiritOrb.Alignment.Light:
 		#print("light collected")
 		collected_light += 1
 	else:

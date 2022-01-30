@@ -17,7 +17,8 @@ enum Alignment {
 export (Alignment) var type := Alignment.Light setget set_type
 
 func _ready():
-	set_type(type)
+	if type == Alignment.Dark:
+		set_type(type)
 
 func set_type(value):
 	type = value

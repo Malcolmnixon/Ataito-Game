@@ -16,9 +16,13 @@ func _ready():
 	_timer.start()
 
 	#collectable updates
-	collectable_tracker.connect("total_updated", self, "_update_stats")
+	collectable_tracker.connect("total_updated", self, "_total_updated")
 
 	# First Update
+	_update_stats()
+
+# throw away signal info
+func _total_updated(_amount, _total):
 	_update_stats()
 
 func _update_stats():

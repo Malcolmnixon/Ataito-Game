@@ -20,6 +20,7 @@ export var current_animal := Animal.Ape
 
 func _ready():
 	if _player:
+		# warning-ignore:return_value_discarded
 		_player.connect("toggle_animal", self, "toggle_animal")
 	else:
 		set_animal(current_animal)
@@ -66,6 +67,7 @@ func set_animal(animal):
 	_player_body.velocity = player_velocity
 
 	#connect signals
+	# warning-ignore:return_value_discarded
 	_player.connect("toggle_animal", self, "toggle_animal")
 
 	# Play the animal sound
