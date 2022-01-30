@@ -7,4 +7,4 @@ func _ready():
 	_update_total_display(0, board.collectable_total)
 
 func _update_total_display(amount, total):
-	text = "To Get: {amount}".format({'amount': amount})
+	text = "To Get: {remaining}".format({'remaining': (total - amount)})
