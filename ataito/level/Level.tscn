@@ -372,20 +372,62 @@ transform = Transform( 0.979488, -0.103799, -0.17271, 0.102222, 0.994598, -0.018
 [node name="Water" parent="HTerrain/VineBridge" instance=ExtResource( 19 )]
 transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 180.701, 5.45748, 55.1009 )
 
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="HTerrain/VineBridge/Water"]
+transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 0, 0, 0 )
+stream = ExtResource( 29 )
+autoplay = true
+max_distance = 100.0
+doppler_tracking = 2
+
 [node name="Water2" parent="HTerrain/VineBridge" instance=ExtResource( 19 )]
 transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 173.701, 5.45748, 65.1009 )
+
+[node name="AudioStreamPlayer3D3" type="AudioStreamPlayer3D" parent="HTerrain/VineBridge/Water2"]
+transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 0, 0, 0 )
+stream = ExtResource( 29 )
+autoplay = true
+max_distance = 100.0
+doppler_tracking = 2
 
 [node name="Water3" parent="HTerrain/VineBridge" instance=ExtResource( 19 )]
 transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 171.701, 5.45748, 77.1009 )
 
+[node name="AudioStreamPlayer3D4" type="AudioStreamPlayer3D" parent="HTerrain/VineBridge/Water3"]
+transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 0, 0, 0 )
+stream = ExtResource( 29 )
+autoplay = true
+max_distance = 100.0
+doppler_tracking = 2
+
 [node name="Water4" parent="HTerrain/VineBridge" instance=ExtResource( 19 )]
 transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 163.701, 5.45748, 92.1009 )
+
+[node name="AudioStreamPlayer3D5" type="AudioStreamPlayer3D" parent="HTerrain/VineBridge/Water4"]
+transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 0, 0, 0 )
+stream = ExtResource( 29 )
+autoplay = true
+max_distance = 100.0
+doppler_tracking = 2
 
 [node name="Water5" parent="HTerrain/VineBridge" instance=ExtResource( 19 )]
 transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 155.701, 5.45748, 99.1009 )
 
+[node name="AudioStreamPlayer3D6" type="AudioStreamPlayer3D" parent="HTerrain/VineBridge/Water5"]
+transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 0, 0, 0 )
+stream = ExtResource( 29 )
+autoplay = true
+max_distance = 100.0
+doppler_tracking = 2
+
 [node name="Water6" parent="HTerrain/VineBridge" instance=ExtResource( 19 )]
 transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 146.701, 5.45748, 109.101 )
+
+[node name="AudioStreamPlayer3D7" type="AudioStreamPlayer3D" parent="HTerrain/VineBridge/Water6"]
+transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 6.87935, 0, 2.17477 )
+stream = ExtResource( 29 )
+autoplay = true
+max_distance = 100.0
+doppler_tracking = 2
 
 [node name="Area" type="Area" parent="HTerrain/VineBridge"]
 transform = Transform( -0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 173.782, 5, 72.147 )
