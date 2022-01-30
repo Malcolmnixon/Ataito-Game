@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/441152__keng-wai-chane-chick-te__geyser-soldemanana-bolivia.ogg-8055c2d5553361661efb656ba86f047e.oggstr"
+
+[deps]
+
+source_file="res://assets/freesound.org/441152__keng-wai-chane-chick-te__geyser-soldemanana-bolivia.ogg"
+dest_files=[ "res://.import/441152__keng-wai-chane-chick-te__geyser-soldemanana-bolivia.ogg-8055c2d5553361661efb656ba86f047e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
