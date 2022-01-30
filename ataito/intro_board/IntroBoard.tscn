@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://ataito/collectable/CollectableTracker.gd" type="Script" id=1]
 [ext_resource path="res://fonts/kirifont/KiriFont.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://ataito/intro_board/Count.gd" type="Script" id=3]
+[ext_resource path="res://ataito/intro_board/ataito-controller-layout.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=2]
 size = 72
@@ -53,5 +54,11 @@ valign = 1
 autowrap = true
 script = ExtResource( 3 )
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="ViewportSprite" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.12755, 0, 0 )
 texture = SubResource( 1 )
+
+[node name="LayoutSprite" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09941, 0, 0 )
+pixel_size = 0.002
+texture = ExtResource( 4 )
