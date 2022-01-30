@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://ataito/collectable/SpiritOrb.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/ambientcg.com/rock_046/Rock046S_1K_Color.jpg" type="Texture" id=2]
@@ -58,7 +58,16 @@ uv1_scale = Vector3( 2, 2, 2 )
 [sub_resource type="CubeMesh" id=7]
 material = SubResource( 6 )
 
-[node name="EndGate" type="Spatial"]
+[sub_resource type="ConvexPolygonShape" id=8]
+points = PoolVector3Array( 0.029, 36.7543, -0.42085, 0.029, 14.6692, 0.855557, 0.029, 20.1274, 0.811532, -1.02376, 1.02064, 0.210961, 0.0301, 0.844695, -0.862971, 0.0301, 0.844695, 0.857423, -0.595861, -0.693764, -0.882027, -0.0732616, 39.8442, 0.353572, -0.595861, -0.693764, 0.876478, -0.0732616, 35.9878, -0.548905, -0.976148, -0.693764, -0.406657, -0.0732616, 40.9382, -0.263683, -0.0257526, 23.2576, -0.83449, -0.0732616, 31.4314, 0.686149, 0.029, 38.4314, 0.326914, -0.976148, -0.693764, 0.401109, -0.88113, 1.02064, -0.596442, -0.0732616, 14.1868, 0.924015, -0.0732616, 13.4742, -0.929564, -0.0732616, 42.0281, 0.0683497, -0.0732616, 31.1925, -0.691698, -0.50095, 1.02064, 0.924015, 0.029, 19.7314, -0.81708, -0.0732616, 36.0842, 0.543357, -0.0257526, 26.7745, 0.781404, 0.00927953, 40.4775, 0.251787, 0.029, 30.64, 0.635261, -0.0732616, 41.458, 0.210961, -0.0732616, 39.0352, -0.406657, -0.764232, 0.822749, 0.637523, 0.029, 28.2642, -0.685004, -0.0732616, 39.1777, 0.401109, -0.0732616, 28.8619, -0.739416, 0.029, 14.0053, -0.861106, -0.000571674, 35.4006, 0.518917, -0.00203481, 35.2637, -0.523037, -0.0257526, 26.4894, -0.786953, -0.0732616, 39.7478, -0.35912, -0.0257526, 29.105, 0.733867, -0.0732616, 34.6088, 0.590894, 0.029, 26.3232, 0.723481, -0.0732616, 40.9801, 0.258135, 0.029, 37.8141, 0.371276, 0.029, 26.0592, -0.728861, 0.029, 33.5865, 0.54721, -0.0732616, 34.4243, -0.596442 )
+
+[sub_resource type="ConvexPolygonShape" id=9]
+points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=10]
+points = PoolVector3Array( -1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1 )
+
+[node name="EndGate" type="StaticBody"]
 script = ExtResource( 11 )
 
 [node name="CollectableTracker" type="Node" parent="."]
@@ -188,5 +197,17 @@ emitting = false
 process_material = ExtResource( 9 )
 draw_pass_1 = ExtResource( 7 )
 type = 2
+
+[node name="BaseCollision" type="CollisionShape" parent="."]
+transform = Transform( -6.63477e-15, -4.28801e-09, -3.97264, -2.01046, 7.45058e-09, 0, 1.78814e-07, 0.0980983, -1.7365e-07, 1.19209e-07, 5.96046e-08, -0.531919 )
+shape = SubResource( 8 )
+
+[node name="PedestalOfLightCollision" type="CollisionShape" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.313245, -0.157294, 0, 0.103814, 0.474614, -1.56911, 0.218372, 0.967969 )
+shape = SubResource( 9 )
+
+[node name="PedestalOfDarkCollision" type="CollisionShape" parent="."]
+transform = Transform( 0.5, 0, 0, 0, 0.313245, -0.157294, 0, 0.103814, 0.474614, 1.41305, 0.218372, 0.967969 )
+shape = SubResource( 10 )
 
 [connection signal="area_entered" from="EndTimerArea" to="EndBoard" method="stop_level_timer"]
