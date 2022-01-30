@@ -20,3 +20,9 @@ func _update_pedestals(_amount, _total):
 
 func _on_level_ended():
 	celebrate_particles.emitting = true
+
+	# Don't allow the player to collect more orbs after stopping the timer
+	var collectables = get_tree().get_nodes_in_group("collectable")
+	for c in collectables:
+		c._already_collected = true
+		c._orb.emitting = false
