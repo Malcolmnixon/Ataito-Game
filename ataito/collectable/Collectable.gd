@@ -14,7 +14,7 @@ enum Alignment {
 	Dark = 2
 }
 
-export (Alignment) var type := 0 setget _update_type
+export (Alignment) var type := Alignment.Light setget _update_type
 
 onready var _object : Spatial = $Body
 onready var _particles : Particles = $Body/Particles
