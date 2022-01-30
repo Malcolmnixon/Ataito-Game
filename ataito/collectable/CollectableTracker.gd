@@ -1,7 +1,7 @@
 extends Spatial
 class_name CollectableTracker
 
-var collectable_total := 0
+var collectable_total := 0 setget , _get_total
 var collected_amount := 0 setget , _get_collected
 var collected_light := 0
 var collected_dark := 0
@@ -27,3 +27,8 @@ func on_Collectable_collected(type, _node):
 
 func _get_collected() -> int:
 	return collected_light + collected_dark
+
+func _get_total() -> int:
+	if collectable_total == 0:
+		collectable_total = get_tree().get_nodes_in_group("collectable").size()
+	return collectable_total

@@ -1,4 +1,4 @@
-extends CollectableTracker
+extends Spatial
 class_name AtaitoPlayer
 
 onready var _ape_player = preload("res://ataito/player/ape/ApePlayer.tscn")
@@ -46,6 +46,8 @@ func set_animal(animal):
 
 	#disconnect signals
 	_player.disconnect("toggle_animal", self, "toggle_animal")
+
+	#TODO Drop left/right hand items
 
 	yield(get_tree(), "physics_frame")
 
