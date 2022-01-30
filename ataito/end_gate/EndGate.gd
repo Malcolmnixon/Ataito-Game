@@ -1,5 +1,7 @@
 extends Spatial
 
+export var restart_timer := 10.0
+
 onready var collectable_tracker = $CollectableTracker
 onready var pedestal_light = $PedestalOfLight
 onready var pedestal_dark = $PedestalOfDark
@@ -20,9 +22,15 @@ func _update_pedestals(_amount, _total):
 
 func _on_level_ended():
 	celebrate_particles.emitting = true
-
+	
 	# Don't allow the player to collect more orbs after stopping the timer
 	var collectables = get_tree().get_nodes_in_group("collectable")
 	for c in collectables:
 		c._already_collected = true
 		c._orb.emitting = false
+		
+	# Wait for the timer
+	yield(get_tree().create_timer(restart_timer), "timeout")
+
+	# Reload the level
+	get_tree().change_scene("res://ataito/level/Level.tscn")
