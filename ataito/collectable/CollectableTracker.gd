@@ -1,4 +1,4 @@
-extends Spatial
+extends Node
 class_name CollectableTracker
 
 var collectable_total := 0 setget , _get_total

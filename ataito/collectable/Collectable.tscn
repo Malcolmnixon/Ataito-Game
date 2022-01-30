@@ -33,6 +33,7 @@ buffer_length = 0.118571
 
 [node name="Collectable" type="Spatial" groups=["collectable"]]
 script = ExtResource( 3 )
+type = 0
 
 [node name="Body" type="RigidBody" parent="."]
 script = ExtResource( 5 )
