@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://ataito/level/terrain/data.hterrain" type="Resource" id=2]
@@ -25,6 +25,8 @@
 [ext_resource path="res://ataito/end_gate/EndGate.tscn" type="PackedScene" id=23]
 [ext_resource path="res://ataito/water_spout/WaterSpout.tscn" type="PackedScene" id=24]
 [ext_resource path="res://ataito/climbing/ClimbingVines.tscn" type="PackedScene" id=25]
+[ext_resource path="res://ataito/climbing/VineWall.tscn" type="PackedScene" id=26]
+[ext_resource path="res://addons/godot-xr-tools/objects/Wind_area.gd" type="Script" id=27]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 8 )
@@ -36,6 +38,9 @@ extents = Vector3( 15, 1, 7 )
 
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 14.0465, 1, 4.87628 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 50, 1, 20 )
 
 [sub_resource type="PanoramaSky" id=2]
 panorama = ExtResource( 3 )
@@ -290,6 +295,58 @@ transform = Transform( 0.826852, 0.0687629, -0.5582, -0.0536668, 0.997616, 0.043
 transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 153.55, 25.9348, 75.3627 )
 type = 2
 
+[node name="VineBridge" type="Spatial" parent="HTerrain"]
+
+[node name="VineWall" parent="HTerrain/VineBridge" instance=ExtResource( 26 )]
+transform = Transform( 0.974742, 0.142612, -0.171873, -0.140445, 0.989779, 0.0247643, 0.173648, 0, 0.984808, 169.2, 27.9, 51.4 )
+
+[node name="VineWall2" parent="HTerrain/VineBridge" instance=ExtResource( 26 )]
+transform = Transform( 0.977551, 0.121176, -0.172369, -0.119335, 0.992631, 0.0210421, 0.173648, 0, 0.984808, 175, 27.2033, 52.4 )
+
+[node name="VineWall3" parent="HTerrain/VineBridge" instance=ExtResource( 26 )]
+transform = Transform( 0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, 0.984808, 180.8, 26.9, 53.4 )
+
+[node name="VineWall4" parent="HTerrain/VineBridge" instance=ExtResource( 26 )]
+transform = Transform( 0.978701, -0.111191, -0.172571, 0.109502, 0.993799, -0.0193082, 0.173648, 0, 0.984808, 186.5, 27.3, 54.4 )
+
+[node name="VineWall5" parent="HTerrain/VineBridge" instance=ExtResource( 26 )]
+transform = Transform( 0.979488, -0.103799, -0.17271, 0.102222, 0.994598, -0.0180246, 0.173648, 0, 0.984808, 192.1, 27.9, 55.4 )
+
+[node name="Water" parent="HTerrain/VineBridge" instance=ExtResource( 19 )]
+transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 180.701, 5.45748, 55.1009 )
+
+[node name="Water2" parent="HTerrain/VineBridge" instance=ExtResource( 19 )]
+transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 173.701, 5.45748, 65.1009 )
+
+[node name="Water3" parent="HTerrain/VineBridge" instance=ExtResource( 19 )]
+transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 171.701, 5.45748, 77.1009 )
+
+[node name="Water4" parent="HTerrain/VineBridge" instance=ExtResource( 19 )]
+transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 163.701, 5.45748, 92.1009 )
+
+[node name="Water5" parent="HTerrain/VineBridge" instance=ExtResource( 19 )]
+transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 155.701, 5.45748, 99.1009 )
+
+[node name="Water6" parent="HTerrain/VineBridge" instance=ExtResource( 19 )]
+transform = Transform( 2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 146.701, 5.45748, 109.101 )
+
+[node name="Area" type="Area" parent="HTerrain/VineBridge"]
+transform = Transform( -0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 173.782, 5, 72.147 )
+collision_layer = 65536
+collision_mask = 0
+script = ExtResource( 27 )
+wind_vector = Vector3( 5, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="HTerrain/VineBridge/Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67912, -3.8147e-06, 3.60138 )
+shape = SubResource( 6 )
+
+[node name="ClimbingVines" parent="HTerrain/VineBridge" instance=ExtResource( 25 )]
+transform = Transform( 0.980714, -0.19545, 0, 0.194234, 0.974613, -0.111365, 0.0217662, 0.109217, 0.99378, 168.045, 24, 50.21 )
+
+[node name="ClimbingVines2" parent="HTerrain/VineBridge" instance=ExtResource( 25 )]
+transform = Transform( 0.972364, -0.233427, 0.00435663, 0.232451, 0.966221, -0.11128, 0.0217662, 0.109217, 0.99378, 167.474, 26.9281, 50.5354 )
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
 
@@ -305,7 +362,7 @@ transform = Transform( 0.376548, 0, -0.926397, 0, 1, 0, 0.926397, 0, 0.376548, -
 transform = Transform( -0.241496, 0, -0.437812, 0, 0.5, 0, 0.437812, 0, -0.241496, -190.522, 32.4009, -188.983 )
 
 [node name="EndGate" parent="." instance=ExtResource( 23 )]
-transform = Transform( 2.41481, 0, -0.647048, 0, 2.5, 0, 0.647048, 0, 2.41481, -98.551, 23.898, -216.602 )
+transform = Transform( -2.36135, 0, 0.820972, 0, 2.5, 0, -0.820972, 0, -2.36135, -53.8982, 23.898, -185.625 )
 
 [editable path="HTerrain/WaterTrap/WindArea"]
 [editable path="HTerrain/WaterTrap/WindArea2"]
