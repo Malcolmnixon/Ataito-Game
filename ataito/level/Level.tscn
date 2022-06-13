@@ -116,6 +116,7 @@ shader_type = "Classic4"
 custom_shader = null
 custom_globalmap_shader = null
 texture_set = SubResource( 1 )
+render_layers = 1
 shader_params/u_ground_uv_scale_per_texture = Plane( 4, 4, 4, 4 )
 shader_params/u_depth_blending = false
 shader_params/u_triplanar = true
