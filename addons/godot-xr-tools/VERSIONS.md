@@ -1,10 +1,30 @@
-# 2.3
+# 2.4.1
+- Fixed grab distance
+- Fixed snap-zone instance drop and free issue
+- Movement provides react properly when disabled
+- Hiding grapple target when disabled
+
+# 2.4.0
+- Added configuration setting for head height in player body.
+- Added Function_JumpDetect_movement to detect jumping via the players body and/or arms
+- Improved responsiveness of snap-turning
+- Moved flight logic from Function_Direct_movement to Function_Flight_movement
+- Added option to disable player sliding on slopes
+- Added support for remote grabbing
+- Moved turning logic from Function_Direct_movement to Function_Turn_movement
+- Fixed movement provider servicing so disabled/bypassed providers can report their finished events
+- Added grappling movement provider
+- Added snap-zones
+
+# 2.3.0
 - Added vignette
 - Moved player physics into new PlayerBody asset (breaking change)
 - Moved Function_Direct_movement settings for player physics into PlayerBody
 - Added Function_Glide_movement to allow the player to glide
 - Added Function_Jump_movement to allow the player to jump
 - Added Function_Climb_movement to allow the player to climb
+- Redid the setup of the hands to make it easier to extend to other gestures
+- Improved pickup and throwing logic
 
 # 2.2
 - Changed default physics layers to make more sense (minor breaking change)

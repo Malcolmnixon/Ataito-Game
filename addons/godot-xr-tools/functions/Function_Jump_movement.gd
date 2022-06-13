@@ -34,55 +34,30 @@ enum Buttons {
 	VR_TRIGGER = 15
 }
 
-## Player jumped signal
-signal player_jumped
-
 ## Movement provider order
 export var order := 20
 
 ## Button to trigger jump
 export (Buttons) var jump_button_id = Buttons.VR_TRIGGER
 
-## Maximum slope that can be jumped on
-export (float, 0.0, 85.0) var max_slope := 45.0
-
-## Jump vertical velocity
-export var jump_velocity := 3.0
-
-## Path to the ARVR Controller
-export (NodePath) var controller = null
-
 # Node references
-var _controller_node: ARVRController = null
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	# Get the controller node
-	_controller_node = get_node(controller) if controller else get_parent()
+onready var _controller: ARVRController = get_parent()
 
 # Perform jump movement
-func physics_movement(delta: float, player_body: PlayerBody):
-	# Skip if the player isn't on flat ground
-	if !player_body.on_ground || player_body.ground_angle > max_slope:
-		return
-
+func physics_movement(delta: float, player_body: PlayerBody, _disabled: bool):
 	# Skip if the jump controller isn't active
-	if !_controller_node.get_is_active():
+	if !_controller.get_is_active():
 		return
 
-	# Skip if the jump button isn't pressed
-	if !_controller_node.is_button_pressed(jump_button_id):
-		return
-
-	# Perform the jump
-	emit_signal("player_jumped")
-	player_body.velocity.y = jump_velocity * ARVRServer.world_scale
+	# Request jump if the button is pressed
+	if _controller.is_button_pressed(jump_button_id):
+		player_body.request_jump()
 
 # This method verifies the MovementProvider has a valid configuration.
 func _get_configuration_warning():
 	# Check the controller node
-	var test_controller_node = get_node_or_null(controller) if controller else get_parent()
-	if !test_controller_node or !test_controller_node is ARVRController:
+	var test_controller = get_parent()
+	if !test_controller or !test_controller is ARVRController:
 		return "Unable to find ARVR Controller node"
 
 	# Call base class

@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "ARVRHelpers",
+"language": "GDScript",
+"path": "res://addons/godot-xr-tools/misc/ARVR_Helpers.gd"
+}, {
 "base": "FirstPersonControllerVR",
 "class": "AnimalController",
 "language": "GDScript",
@@ -45,19 +50,39 @@ _global_script_classes=[ {
 "path": "res://addons/godot-xr-tools/functions/Function_Direct_movement.gd"
 }, {
 "base": "MovementProvider",
+"class": "Function_FlightMovement",
+"language": "GDScript",
+"path": "res://addons/godot-xr-tools/functions/Function_Flight_movement.gd"
+}, {
+"base": "MovementProvider",
 "class": "Function_Glide",
 "language": "GDScript",
 "path": "res://addons/godot-xr-tools/functions/Function_Glide_movement.gd"
+}, {
+"base": "MovementProvider",
+"class": "Function_Grapple",
+"language": "GDScript",
+"path": "res://addons/godot-xr-tools/functions/Function_Grapple_movement.gd"
 }, {
 "base": "MovementProvider",
 "class": "Function_Jump",
 "language": "GDScript",
 "path": "res://addons/godot-xr-tools/functions/Function_Jump_movement.gd"
 }, {
-"base": "Area",
+"base": "MovementProvider",
+"class": "Function_JumpDetect",
+"language": "GDScript",
+"path": "res://addons/godot-xr-tools/functions/Function_JumpDetect_movement.gd"
+}, {
+"base": "Spatial",
 "class": "Function_Pickup",
 "language": "GDScript",
 "path": "res://addons/godot-xr-tools/functions/Function_Pickup.gd"
+}, {
+"base": "MovementProvider",
+"class": "Function_TurnMovement",
+"language": "GDScript",
+"path": "res://addons/godot-xr-tools/functions/Function_Turn_movement.gd"
 }, {
 "base": "MovementProvider",
 "class": "Function_WindMovement",
@@ -68,6 +93,16 @@ _global_script_classes=[ {
 "class": "GodotSfxr",
 "language": "GDScript",
 "path": "res://addons/godot_sfxr/GodotSfxr.gd"
+}, {
+"base": "Node",
+"class": "GroundPhysics",
+"language": "GDScript",
+"path": "res://addons/godot-xr-tools/overrides/GroundPhysics.gd"
+}, {
+"base": "Resource",
+"class": "GroundPhysicsSettings",
+"language": "GDScript",
+"path": "res://addons/godot-xr-tools/overrides/GroundPhysicsSettings.gd"
 }, {
 "base": "ResourceFormatLoader",
 "class": "HTerrainDataLoader",
@@ -84,7 +119,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/godot-xr-tools/functions/MovementProvider.gd"
 }, {
-"base": "StaticBody",
+"base": "Spatial",
 "class": "Object_climbable",
 "language": "GDScript",
 "path": "res://addons/godot-xr-tools/objects/Object_climbable.gd"
@@ -114,10 +149,45 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://ataito/collectable/SpiritOrb.gd"
 }, {
+"base": "Reference",
+"class": "VelocityAverager",
+"language": "GDScript",
+"path": "res://addons/godot-xr-tools/misc/Velocity_Averager.gd"
+}, {
+"base": "Reference",
+"class": "VelocityAveragerLinear",
+"language": "GDScript",
+"path": "res://addons/godot-xr-tools/misc/Velocity_Averager_Linear.gd"
+}, {
+"base": "CanvasLayer",
+"class": "VirtualKeyboard2D",
+"language": "GDScript",
+"path": "res://addons/godot-xr-tools/objects/keyboard/VirtualKeyboard_2D.gd"
+}, {
 "base": "Area",
 "class": "WindArea",
 "language": "GDScript",
 "path": "res://addons/godot-xr-tools/objects/Wind_area.gd"
+}, {
+"base": "Node",
+"class": "XRTHighlightMaterial",
+"language": "GDScript",
+"path": "res://addons/godot-xr-tools/objects/highlight/highlight_material.gd"
+}, {
+"base": "MeshInstance",
+"class": "XRTHighlightRing",
+"language": "GDScript",
+"path": "res://addons/godot-xr-tools/objects/highlight/highlight_ring.gd"
+}, {
+"base": "Spatial",
+"class": "XRTHighlightVisible",
+"language": "GDScript",
+"path": "res://addons/godot-xr-tools/objects/highlight/highlight_visible.gd"
+}, {
+"base": "Area",
+"class": "XRTSnapZone",
+"language": "GDScript",
+"path": "res://addons/godot-xr-tools/objects/Snap_Zone.gd"
 }, {
 "base": "Area",
 "class": "XRToolsInteractableArea",
@@ -135,6 +205,7 @@ _global_script_classes=[ {
 "path": "res://addons/godot-xr-tools/objects/Object_pickable.gd"
 } ]
 _global_script_class_icons={
+"ARVRHelpers": "",
 "AnimalController": "",
 "AtaitoPlayer": "",
 "Collectable": "",
@@ -142,11 +213,17 @@ _global_script_class_icons={
 "FirstPersonControllerVR": "",
 "Function_ClimbMovement": "",
 "Function_DirectMovement": "",
+"Function_FlightMovement": "",
 "Function_Glide": "",
+"Function_Grapple": "",
 "Function_Jump": "",
+"Function_JumpDetect": "",
 "Function_Pickup": "",
+"Function_TurnMovement": "",
 "Function_WindMovement": "",
 "GodotSfxr": "",
+"GroundPhysics": "",
+"GroundPhysicsSettings": "",
 "HTerrainDataLoader": "",
 "HTerrainDataSaver": "",
 "MovementProvider": "",
@@ -156,7 +233,14 @@ _global_script_class_icons={
 "SfxrGlobals": "",
 "SfxrStreamPlayer": "",
 "SpiritOrb": "",
+"VelocityAverager": "",
+"VelocityAveragerLinear": "",
+"VirtualKeyboard2D": "",
 "WindArea": "",
+"XRTHighlightMaterial": "",
+"XRTHighlightRing": "",
+"XRTHighlightVisible": "",
+"XRTSnapZone": "",
 "XRToolsInteractableArea": "",
 "XRToolsInteractableBody": "",
 "XRToolsPickable": ""
@@ -165,6 +249,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Ataito"
+config/description="Ataito 0.0.2"
 run/main_scene="res://ataito/level/Level.tscn"
 config/icon="res://icon.png"
 

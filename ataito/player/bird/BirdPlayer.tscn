@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/godot-xr-tools/assets/PlayerBody.tscn" type="PackedScene" id=2]
@@ -10,8 +10,20 @@
 [ext_resource path="res://assets/freesound.org/Hooded_crow.mp3" type="AudioStream" id=8]
 [ext_resource path="res://assets/custom/wind.ogg" type="AudioStream" id=9]
 [ext_resource path="res://ataito/player/MotionSound.gd" type="Script" id=10]
+[ext_resource path="res://addons/godot-xr-tools/functions/Function_Turn_movement.tscn" type="PackedScene" id=11]
+[ext_resource path="res://addons/godot-xr-tools/overrides/GroundPhysicsSettings.gd" type="Script" id=12]
 [ext_resource path="res://ataito/player/bird/wing.tscn" type="PackedScene" id=13]
 [ext_resource path="res://addons/godot-xr-tools/functions/Function_Wind_movement.tscn" type="PackedScene" id=14]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 12 )
+flags = 16
+move_drag = 5.0
+move_traction = 30.0
+stop_on_slope = true
+move_max_slope = 45.0
+jump_max_slope = 45.0
+jump_velocity = 2.0
 
 [node name="BirdPlayer" instance=ExtResource( 1 )]
 script = ExtResource( 7 )
@@ -26,12 +38,10 @@ transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0
 
 [node name="Function_Direct_movement" parent="LeftHandController" index="1" instance=ExtResource( 3 )]
 max_speed = 2.0
-move_type = 1
-canFly = false
+strafe = true
 
 [node name="Function_Jump_movement" parent="LeftHandController" index="2" instance=ExtResource( 4 )]
 jump_button_id = 7
-jump_velocity = 2.0
 
 [node name="Function_Toggle_Animal" type="Node" parent="LeftHandController" index="3"]
 script = ExtResource( 6 )
@@ -41,34 +51,34 @@ controller = null
 transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="Function_Direct_movement" parent="RightHandController" index="1" instance=ExtResource( 3 )]
-smooth_rotation = true
 max_speed = 2.0
-canFly = false
 
-[node name="Function_Jump_movement" parent="RightHandController" index="2" instance=ExtResource( 4 )]
+[node name="Function_Turn_movement" parent="RightHandController" index="2" instance=ExtResource( 11 )]
+smooth_rotation = true
+
+[node name="Function_Jump_movement" parent="RightHandController" index="3" instance=ExtResource( 4 )]
 jump_button_id = 7
-jump_velocity = 2.0
 
-[node name="Function_Toggle_Animal" type="Node" parent="RightHandController" index="3"]
+[node name="Function_Toggle_Animal" type="Node" parent="RightHandController" index="4"]
 script = ExtResource( 6 )
 controller = null
 
 [node name="PlayerBody" parent="." index="4" instance=ExtResource( 2 )]
 player_radius = 0.1
 eye_forward_offset = 0.3
-traction = 5.0
-max_slope = 40.0
 push_rigid_bodies = false
+physics = SubResource( 1 )
 
 [node name="Function_Glide_movement" parent="." index="5" instance=ExtResource( 5 )]
+glide_min_fall_speed = -0.8
+glide_fall_speed = -1.0
 glide_forward_speed = 7.0
 horizontal_slew_rate = 2.0
-left_controller = null
-right_controller = null
+vertical_slew_rate = 4.0
 
 [node name="Function_Wind_movement" parent="." index="6" instance=ExtResource( 14 )]
-wind_multiplier = 2.0
-drag = 5.0
+drag_multiplier = 5.0
+collision_mask = 65536
 
 [node name="AnimalSound" type="AudioStreamPlayer" parent="." index="7"]
 stream = ExtResource( 8 )

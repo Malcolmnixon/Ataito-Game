@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://ataito/slick/Slick.gd" type="Script" id=1]
+[ext_resource path="res://addons/godot-xr-tools/overrides/GroundPhysics.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/maujoe.basic_water_material/textures/water_normal_1.png" type="Texture" id=2]
+[ext_resource path="res://addons/godot-xr-tools/overrides/GroundPhysicsSettings.gd" type="Script" id=3]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 10, 0.5, 10 )
@@ -52,9 +53,17 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 1, 0, 0 ) ]
 }
 
+[sub_resource type="Resource" id=6]
+script = ExtResource( 3 )
+flags = 19
+move_drag = 1.0
+move_traction = 1.0
+stop_on_slope = true
+move_max_slope = 45.0
+jump_max_slope = 45.0
+jump_velocity = 0.0
+
 [node name="Water" type="StaticBody"]
-script = ExtResource( 1 )
-traction = 0.2
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
@@ -68,3 +77,6 @@ material/0 = SubResource( 3 )
 autoplay = "UV Water"
 anims/RESET = SubResource( 4 )
 "anims/UV Water" = SubResource( 5 )
+
+[node name="GroundPhysics" parent="." instance=ExtResource( 1 )]
+physics = SubResource( 6 )
