@@ -45,8 +45,9 @@ stream = ExtResource( 12 )
 script = ExtResource( 14 )
 
 [node name="Function_Pickup" parent="LeftHandController" index="1" instance=ExtResource( 8 )]
-grab_distance = 0.1
-ranged_enable = false
+grab_distance = 0.2
+ranged_distance = 1.0
+ranged_angle = 20.0
 
 [node name="Function_Direct_movement" parent="LeftHandController" index="2" instance=ExtResource( 6 )]
 max_speed = 4.0
@@ -67,8 +68,9 @@ stream = ExtResource( 16 )
 script = ExtResource( 14 )
 
 [node name="Function_Pickup" parent="RightHandController" index="1" instance=ExtResource( 8 )]
-grab_distance = 0.1
-ranged_enable = false
+grab_distance = 0.2
+ranged_distance = 1.0
+ranged_angle = 20.0
 
 [node name="Function_Direct_movement" parent="RightHandController" index="2" instance=ExtResource( 6 )]
 max_speed = 4.0
@@ -92,6 +94,7 @@ left_pickup = NodePath("../LeftHandController/Function_Pickup")
 right_pickup = NodePath("../RightHandController/Function_Pickup")
 
 [node name="Function_Wind_movement" parent="." index="6" instance=ExtResource( 17 )]
+drag_multiplier = 0.3
 collision_mask = 65536
 
 [node name="AnimalSound" type="AudioStreamPlayer" parent="." index="7"]

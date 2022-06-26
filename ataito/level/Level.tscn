@@ -294,6 +294,7 @@ type = 2
 [node name="WindArea" parent="HTerrain/WaterTrap" instance=ExtResource( 21 )]
 transform = Transform( 0.803504, 0, 0.5953, 0, 1, 0, -0.5953, 0, 0.803504, 61.698, 5, 141.728 )
 wind_vector = Vector3( -5, 0, 0 )
+drag = 3.0
 
 [node name="CollisionShape" parent="HTerrain/WaterTrap/WindArea" index="0"]
 transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0 )
@@ -302,6 +303,7 @@ shape = SubResource( 5 )
 [node name="WindArea2" parent="HTerrain/WaterTrap" instance=ExtResource( 21 )]
 transform = Transform( 0.9748, 0, 0.22308, 0, 1, 0, -0.22308, 0, 0.9748, 83.014, 5, 131.208 )
 wind_vector = Vector3( -5, 0, 0 )
+drag = 3.0
 
 [node name="CollisionShape" parent="HTerrain/WaterTrap/WindArea2" index="0"]
 transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0 )
@@ -310,6 +312,7 @@ shape = SubResource( 4 )
 [node name="WindArea3" parent="HTerrain/WaterTrap" instance=ExtResource( 21 )]
 transform = Transform( 0.991921, 0, 0.126857, 0, 1, 0, -0.126857, 0, 0.991921, 98.477, 5, 129.114 )
 wind_vector = Vector3( -5, 0, 0 )
+drag = 3.0
 
 [node name="CollisionShape" parent="HTerrain/WaterTrap/WindArea3" index="0"]
 transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0 )
