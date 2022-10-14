@@ -1,13 +1,13 @@
 [gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://addons/godot-openxr/scenes/first_person_controller_vr.tscn" type="PackedScene" id=1]
-[ext_resource path="res://addons/godot-xr-tools/assets/PlayerBody.tscn" type="PackedScene" id=2]
+[ext_resource path="res://addons/godot-xr-tools/assets/player_body.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ataito/player/ape/LeftHandApe.tscn" type="PackedScene" id=3]
-[ext_resource path="res://addons/godot-xr-tools/functions/Function_Climb_movement.tscn" type="PackedScene" id=4]
-[ext_resource path="res://addons/godot-xr-tools/functions/Function_Jump_movement.tscn" type="PackedScene" id=5]
-[ext_resource path="res://addons/godot-xr-tools/functions/Function_Direct_movement.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/godot-xr-tools/functions/movement_climb.tscn" type="PackedScene" id=4]
+[ext_resource path="res://addons/godot-xr-tools/functions/movement_jump.tscn" type="PackedScene" id=5]
+[ext_resource path="res://addons/godot-xr-tools/functions/movement_direct.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ataito/player/ape/RightHandApe.tscn" type="PackedScene" id=7]
-[ext_resource path="res://addons/godot-xr-tools/functions/Function_Pickup.tscn" type="PackedScene" id=8]
+[ext_resource path="res://addons/godot-xr-tools/functions/function_pickup.tscn" type="PackedScene" id=8]
 [ext_resource path="res://ataito/player/Function_ToggleAnimal.gd" type="Script" id=9]
 [ext_resource path="res://ataito/player/AnimalController.gd" type="Script" id=10]
 [ext_resource path="res://assets/freesound.org/Monkey_imitation_2.mp3" type="AudioStream" id=11]
@@ -16,9 +16,9 @@
 [ext_resource path="res://ataito/player/ClimbSound.gd" type="Script" id=14]
 [ext_resource path="res://ataito/player/MotionSound.gd" type="Script" id=15]
 [ext_resource path="res://assets/custom/grunt-hupt.ogg" type="AudioStream" id=16]
-[ext_resource path="res://addons/godot-xr-tools/functions/Function_Wind_movement.tscn" type="PackedScene" id=17]
-[ext_resource path="res://addons/godot-xr-tools/functions/Function_Turn_movement.tscn" type="PackedScene" id=18]
-[ext_resource path="res://addons/godot-xr-tools/overrides/GroundPhysicsSettings.gd" type="Script" id=19]
+[ext_resource path="res://addons/godot-xr-tools/functions/movement_wind.tscn" type="PackedScene" id=17]
+[ext_resource path="res://addons/godot-xr-tools/functions/movement_turn.tscn" type="PackedScene" id=18]
+[ext_resource path="res://addons/godot-xr-tools/overrides/ground_physics_settings.gd" type="Script" id=19]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 19 )
@@ -29,6 +29,8 @@ stop_on_slope = true
 move_max_slope = 45.0
 jump_max_slope = 45.0
 jump_velocity = 4.0
+bounciness = 0.0
+bounce_threshold = 1.0
 
 [node name="ApePlayer" instance=ExtResource( 1 )]
 script = ExtResource( 10 )
@@ -50,6 +52,8 @@ ranged_distance = 1.0
 ranged_angle = 20.0
 
 [node name="Function_Direct_movement" parent="LeftHandController" index="2" instance=ExtResource( 6 )]
+enabled = true
+order = 10
 max_speed = 4.0
 strafe = true
 
@@ -73,7 +77,10 @@ ranged_distance = 1.0
 ranged_angle = 20.0
 
 [node name="Function_Direct_movement" parent="RightHandController" index="2" instance=ExtResource( 6 )]
+enabled = true
+order = 10
 max_speed = 4.0
+strafe = false
 
 [node name="Function_Turn_movement" parent="RightHandController" index="3" instance=ExtResource( 18 )]
 smooth_rotation = true

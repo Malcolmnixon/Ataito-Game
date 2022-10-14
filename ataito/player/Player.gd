@@ -5,7 +5,7 @@ onready var _ape_player = preload("res://ataito/player/ape/ApePlayer.tscn")
 onready var _bird_player = preload("res://ataito/player/bird/BirdPlayer.tscn")
 
 onready var _player: AnimalController = $Player
-onready var _player_body: PlayerBody = $Player/PlayerBody
+onready var _player_body: XRToolsPlayerBody = $Player/PlayerBody
 
 onready var _set_animal_cooldown = $AnimalSwitchCooldown
 var _cooling_down := false

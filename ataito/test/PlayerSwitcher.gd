@@ -5,7 +5,7 @@ onready var _bird_player = preload("res://ataito/player/bird/BirdPlayer.tscn")
 
 var _timer: SceneTreeTimer = null
 onready var _player: ARVROrigin = $Player
-onready var _player_body: PlayerBody = $Player/PlayerBody
+onready var _player_body: XRToolsPlayerBody = $Player/PlayerBody
 
 var _toggle := false
 
