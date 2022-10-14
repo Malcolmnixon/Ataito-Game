@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://ataito/level/terrain/data.hterrain" type="Resource" id=2]
@@ -41,7 +41,7 @@ textures = [ [ ExtResource( 9 ), ExtResource( 17 ), ExtResource( 4 ), ExtResourc
 extents = Vector3( 15, 1, 7 )
 
 [sub_resource type="BoxShape" id=4]
-extents = Vector3( 14.0465, 1, 4.87628 )
+extents = Vector3( 17.6737, 2.67708, 22.3503 )
 
 [sub_resource type="Gradient" id=7]
 offsets = PoolRealArray( 0.294393, 0.764486 )
@@ -82,10 +82,7 @@ albedo_texture = ExtResource( 30 )
 material = SubResource( 14 )
 
 [sub_resource type="BoxShape" id=15]
-extents = Vector3( 0.63222, 2.78088, 3.64302 )
-
-[sub_resource type="BoxShape" id=6]
-extents = Vector3( 50, 1, 20 )
+extents = Vector3( 0.63222, 7.702, 4.4573 )
 
 [sub_resource type="PanoramaSky" id=2]
 panorama = ExtResource( 3 )
@@ -439,10 +436,10 @@ doppler_tracking = 2
 collision_layer = 65536
 collision_mask = 0
 script = ExtResource( 27 )
-wind_vector = Vector3( 0, 0, 5 )
+wind_vector = Vector3( 0, 20, 20 )
 
 [node name="CollisionShape" type="CollisionShape" parent="HTerrain/VineBridge/Waterfall/WaterFallPush"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.20048, 0 )
+transform = Transform( 1, 0, 0, 0, 0.860991, 0.508621, 0, -0.508621, 0.860991, 0, -5.43798, 3.2807 )
 shape = SubResource( 15 )
 
 [node name="LargeBoulder" parent="HTerrain/VineBridge/Waterfall" instance=ExtResource( 11 )]
@@ -508,16 +505,23 @@ autoplay = true
 max_distance = 100.0
 doppler_tracking = 2
 
-[node name="WaterPush" type="Area" parent="HTerrain/VineBridge"]
-transform = Transform( -0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 173.782, 5, 72.147 )
-collision_layer = 65536
-collision_mask = 0
-script = ExtResource( 27 )
-wind_vector = Vector3( 4, 0, 1 )
+[node name="WindArea4" parent="HTerrain/VineBridge" instance=ExtResource( 21 )]
+transform = Transform( 0.906639, 0, -0.421906, 0, 1, 0, 0.421906, 0, 0.906639, 175.2, 5, 67.1241 )
+wind_vector = Vector3( 2, 0, 8 )
+drag = 3.0
 
-[node name="CollisionShape" type="CollisionShape" parent="HTerrain/VineBridge/WaterPush"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67912, -3.8147e-06, 3.60138 )
-shape = SubResource( 6 )
+[node name="CollisionShape" parent="HTerrain/VineBridge/WindArea4" index="0"]
+transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="WindArea5" parent="HTerrain/VineBridge" instance=ExtResource( 21 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 158.074, 5, 98.0902 )
+wind_vector = Vector3( -8, 0, 0 )
+drag = 3.0
+
+[node name="CollisionShape" parent="HTerrain/VineBridge/WindArea5" index="0"]
+transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 1.80803, 0, -2.11301 )
+shape = SubResource( 4 )
 
 [node name="ClimbingVines" parent="HTerrain/VineBridge" instance=ExtResource( 25 )]
 transform = Transform( 0.980714, -0.19545, 0, 0.194234, 0.974613, -0.111365, 0.0217662, 0.109217, 0.99378, 168.045, 24, 50.21 )
@@ -534,7 +538,7 @@ volume_db = -8.0
 autoplay = true
 
 [node name="Player" parent="." instance=ExtResource( 7 )]
-transform = Transform( 0.376548, 0, -0.926397, 0, 1, 0, 0.926397, 0, 0.376548, -207.187, 29.982, -186.476 )
+transform = Transform( 0.349488, 0, -0.936941, 0, 1, 0, 0.936941, 0, 0.349488, -207.358, 30, -186.538 )
 
 [node name="IntroBoard" parent="." instance=ExtResource( 22 )]
 transform = Transform( -0.241496, 0, -0.437812, 0, 0.5, 0, 0.437812, 0, -0.241496, -190.522, 32.4009, -188.983 )
@@ -545,3 +549,5 @@ transform = Transform( -2.36135, 0, 0.820972, 0, 2.5, 0, -0.820972, 0, -2.36135,
 [editable path="HTerrain/WaterTrap/WindArea"]
 [editable path="HTerrain/WaterTrap/WindArea2"]
 [editable path="HTerrain/WaterTrap/WindArea3"]
+[editable path="HTerrain/VineBridge/WindArea4"]
+[editable path="HTerrain/VineBridge/WindArea5"]
