@@ -35,8 +35,9 @@ buffer_length = 0.118571
 script = ExtResource( 3 )
 
 [node name="Body" type="RigidBody" parent="."]
+mode = 1
 script = ExtResource( 5 )
-reset_transform_on_pickup = false
+release_mode = 0
 ranged_grab_method = 2
 
 [node name="PickupCenter" type="Spatial" parent="Body"]

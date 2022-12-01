@@ -12,9 +12,9 @@ radial_segments = 8
 points = PoolVector3Array( -0.4, -1, 0, -0.28285, -1, -0.28285, -0.28285, -1, 0.282772, -0.4, 1, 0, 0, -1, -0.4, -0.28285, 1, -0.28285, 0, -1, 0.4, -0.28285, 1, 0.282772, 0.282772, -1, -0.28285, 0, 1, -0.4, 0.282772, -1, 0.282772, 0, 1, 0.4, 0.4, -1, 0, 0.282772, 1, -0.28285, 0.282772, 1, 0.282772, 0.4, 1, 0 )
 
 [node name="MovableLog" type="RigidBody"]
+mode = 1
 script = ExtResource( 2 )
-reset_transform_on_pickup = false
-highlight_mesh_instance = null
+release_mode = 0
 
 [node name="PickupCenter" type="Spatial" parent="."]
 
