@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://ataito/level/terrain/data.hterrain" type="Resource" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://assets/freesound.org/420557__marcmatthewsmusic__river-02.ogg" type="AudioStream" id=29]
 [ext_resource path="res://assets/maujoe.basic_water_material/textures/water-grey.png" type="Texture" id=30]
 [ext_resource path="res://assets/freesound.org/511076__nox-sound__ambiance-waterfall-loop-03.ogg" type="AudioStream" id=31]
+[ext_resource path="res://addons/godot-xr-tools/xr/start_xr.tscn" type="PackedScene" id=32]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 8 )
@@ -104,6 +105,7 @@ dof_blur_far_distance = 40.0
 [node name="HTerrain" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -256, 0, -256 )
 script = ExtResource( 1 )
+lod_scale = 2.0
 _terrain_data = ExtResource( 2 )
 chunk_size = 16
 collision_enabled = true
@@ -545,6 +547,8 @@ transform = Transform( -0.241496, 0, -0.437812, 0, 0.5, 0, 0.437812, 0, -0.24149
 
 [node name="EndGate" parent="." instance=ExtResource( 23 )]
 transform = Transform( -2.36135, 0, 0.820972, 0, 2.5, 0, -0.820972, 0, -2.36135, -53.8982, 23.898, -185.625 )
+
+[node name="StartXR" parent="." instance=ExtResource( 32 )]
 
 [editable path="HTerrain/WaterTrap/WindArea"]
 [editable path="HTerrain/WaterTrap/WindArea2"]

@@ -1,4 +1,4 @@
-extends FirstPersonControllerVR
+extends ARVROrigin
 class_name AnimalController
 
 signal toggle_animal
